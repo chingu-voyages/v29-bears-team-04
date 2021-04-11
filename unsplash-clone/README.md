@@ -1,6 +1,5 @@
 # Tasks
 
--   [ ] add scss to application
 -   [ ] consider/add general sub-components folder : possible name 'partials'
 -   [ ] figure out if @types in package.json need to be there or in "dev dependencies"
 -   [ ] consider/delete/remove the testing files and packages

@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    padding: 8px 12px;
+    justify-content: space-between;
+}
+
+.logo-container {
+    &-img {
+        height: 32px;
+    }
+}
+
+.search-btn {
+    background-color:blue;
+}

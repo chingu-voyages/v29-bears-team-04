@@ -7,6 +7,15 @@
 .logo-container {
   &-img {
     height: 32px;
+    display: flex;
+    align-items: center;
+  }
+}
+.hamburger {
+  &-img {
+    height: 32px;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -36,4 +45,8 @@
   display: flex;
   flex-grow: 1;
   width: 100%;
+}
+
+.hamburger {
+  display: inline;
 }

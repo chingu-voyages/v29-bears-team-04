@@ -2,6 +2,7 @@ import "./Header.scss";
 import Unsplash_logo from "../../images/Unsplash_logo.svg";
 
 import SearchBar from "./SearchBar";
+import Hamburger from "./Hamburger";
 
 export default function Header() {
     return (
@@ -10,7 +11,7 @@ export default function Header() {
                 <img src={Unsplash_logo} alt="logo" />
             </div>
             <SearchBar />
-            <div> Hamburger </div>
+            <Hamburger />
         </div>
     );
 }

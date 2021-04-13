@@ -1,15 +1,39 @@
 .header {
-    display: flex;
-    padding: 8px 12px;
-    justify-content: space-between;
+  display: flex;
+  padding: 8px 12px;
+  justify-content: space-between;
 }
 
 .logo-container {
-    &-img {
-        height: 32px;
-    }
+  &-img {
+    height: 32px;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-grow: 1;
+  max-height: 25px;
+  border-style: solid;
+  border-color: grey;
+  border-radius: 2em;
+  border-width: 2px;
+  margin-left: 18px;
+  margin-right: 18px;
 }
 
 .search-btn {
-    background-color:blue;
+  background-color: transparent;
+  &-img {
+    // display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.search-input {
+  background: transparent;
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
 }

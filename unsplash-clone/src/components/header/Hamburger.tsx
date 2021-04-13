@@ -7,8 +7,7 @@ export default function Hamburger() {
     const [dropdownState, setDropdownState] = useState("dropdown-hidden")
 
     const toggleDropdown = (e:React.MouseEvent<any>) => {
-        debugger;
-        return; 
+        dropdownState === "dropdown-hidden" ? setDropdownState("dropdown-visible") : setDropdownState("dropdown-hidden")
     }
     return (
         <div className="hamburger">

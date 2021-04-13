@@ -10,4 +10,7 @@ button {
 
 input {
   border: none;
+  &:focus {
+    outline: none;
+  }
 }

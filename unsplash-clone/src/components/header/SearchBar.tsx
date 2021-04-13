@@ -13,7 +13,7 @@ export default function SearchBar() {
             <button className="search-btn">
                 <img src={Search}></img>
             </button>
-            <input placeholder="search" value= { searchText } className="search-input" onChange={ changeText }></input>
+            <input placeholder="Search photos" value= { searchText } className="search-input" onChange={ changeText }></input>
         </form>
         </>
     );

@@ -1,4 +1,4 @@
-import Search from "../../images/search-line.svg";
+import Search from "../../../images/search-line.svg";
 import { useState } from 'react';
 
 export default function SearchBar() {

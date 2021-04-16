@@ -16,8 +16,8 @@ import "./App.scss";
 function App() {
     return (
         <div className="App">
-            <Header />
             <BrowserRouter>
+            <Header />
                 <Switch>
                     {/* HomePage */}
                     <Route exact path="/" component={Unsplash} />

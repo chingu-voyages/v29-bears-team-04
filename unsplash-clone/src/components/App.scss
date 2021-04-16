@@ -6,6 +6,9 @@ button {
   background-color: transparent;
   border: none;
   border-radius: 1em;
+  &:focus {
+    outline: none;
+  }
 }
 
 input {

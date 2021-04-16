@@ -12,6 +12,8 @@ export default function Hamburger() {
 
     const toggleDropdown = (e:React.MouseEvent<any>) => setDropdownState(!dropdownState)
 
+  
+
     
 
 
@@ -26,7 +28,7 @@ export default function Hamburger() {
                 </img>
             </button>
             <ul className={ dropdownState ? "dropdown active" : "dropdown"}>
-                {dropdownState ? < DropdownList {...setDropdownState}/> : null}
+                {dropdownState ? < DropdownList setDropdownState={setDropdownState}/> : null}
                 
             </ul>
         </div>

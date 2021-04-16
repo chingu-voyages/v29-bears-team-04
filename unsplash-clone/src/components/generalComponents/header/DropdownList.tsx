@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-export default function DropdownList(...setDropdownState:any) {
-    const closeMobileMenu = (e:React.MouseEvent<any>) => setDropdownState(false)
-    console.log(setDropdownState)
+export default function DropdownList(props:any) {
+    const closeMobileMenu = (e:React.MouseEvent<any>) => props.setDropdownState(false)
+    console.log(props.setDropdownState)
     return (
         <>
                 <li>

@@ -51,12 +51,12 @@
   display: inline;
 }
 
-// .dropdown {
-//   &-active {
-//     width: 200px;
-//     // background: blue;
-//     &-li {
-//       color: yellow;
-//     }
-//   }
-// }
+.dropdown {
+  &:active {
+    width: 200px;
+    // background: blue;
+    &-li {
+      color: yellow;
+    }
+  }
+}

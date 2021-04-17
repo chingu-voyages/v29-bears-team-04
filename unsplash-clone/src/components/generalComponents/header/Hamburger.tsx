@@ -1,7 +1,7 @@
 import "./Header.scss";
 import Burger from "../../../images/hamburger-menu.svg";
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import DropdownItems from './DropdownItems';
 import DropdownItem from './DropdownItem'
 
@@ -25,7 +25,7 @@ export default function Hamburger() {
     return (
         <div className="hamburger">
             <button className="burger-container" onClick={ toggleDropdown }>
-                <img src={Burger}>
+                <img src={Burger} alt="dropdown icon">
 
                 </img>
             </button>

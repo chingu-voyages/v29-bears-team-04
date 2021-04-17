@@ -22,6 +22,7 @@
 .form-container {
   display: flex;
   flex-grow: 1;
+  align-items: center;
   max-height: 25px;
   border-style: solid;
   border-color: grey;
@@ -49,14 +50,18 @@
 
 .hamburger {
   display: inline;
-}
 
-.dropdown {
-  &:active {
-    width: 200px;
-    // background: blue;
-    &-li {
-      color: yellow;
+  &.dropdown {
+    &.active {
+      display: inline;
+      position: relative;
+      margin-top: 12px;
+      z-index: 1;
+      & > ul {
+        display: block;
+        & > li {
+        }
+      }
     }
   }
 }

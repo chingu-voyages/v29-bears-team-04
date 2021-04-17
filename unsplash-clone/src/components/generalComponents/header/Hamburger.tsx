@@ -23,17 +23,21 @@ export default function Hamburger() {
 
     
     return (
-        <div className="hamburger">
+        <>
+        <div className="hamburger" >
+        <div className={ dropdownState ? "dropdown active" : "dropdown"}>
             <button className="burger-container" onClick={ toggleDropdown }>
                 <img src={Burger} alt="dropdown icon">
 
                 </img>
             </button>
-            <ul className={ dropdownState ? "dropdown active" : "dropdown"}>
-                {dropdownState? DropdownItems.map((item, index) => {
-                    return <DropdownItem {...item} closeMobileMenu={closeMobileMenu} key={index}/>
-                }) : null}
-            </ul>
+                <ul >
+                    {dropdownState? DropdownItems.map((item, index) => {
+                        return <DropdownItem {...item} closeMobileMenu={closeMobileMenu} key={index}/>
+                    }) : null}
+                </ul>
+            </div>
         </div>
+        </>
     )
 }

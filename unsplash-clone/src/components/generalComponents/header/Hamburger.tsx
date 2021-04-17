@@ -31,7 +31,7 @@ export default function Hamburger() {
             </button>
             <ul className={ dropdownState ? "dropdown active" : "dropdown"}>
                 {dropdownState? DropdownItems.map((item, index) => {
-                    return <DropdownItem {...item} closeMobileMenu={closeMobileMenu} index={index}/>
+                    return <DropdownItem {...item} closeMobileMenu={closeMobileMenu} key={index}/>
                 }) : null}
             </ul>
         </div>

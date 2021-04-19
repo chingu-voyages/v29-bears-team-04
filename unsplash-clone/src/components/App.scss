@@ -1,19 +1,67 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 button {
-  background-color: transparent;
-  border: none;
-  border-radius: 1em;
-  &:focus {
-    outline: none;
-  }
+    background-color: transparent;
+    border: none;
+    border-radius: 1em;
+    &:focus {
+        outline: none;
+    }
 }
 
 input {
-  border: none;
-  &:focus {
-    outline: none;
-  }
+    border: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+.flex {
+    display: flex;
+
+    &-container {
+        height: 100vh;
+        width: 100%;
+    }
+    &-v-center {
+        align-items: center;
+    }
+    &-v-start {
+        align-items: start;
+    }
+    &-h-center {
+        justify-content: center;
+    }
+    &-h-start {
+        justify-content: start;
+    }
+    &-col {
+        flex-direction: column;
+    }
+}
+
+.h {
+    &-half {
+        height: 50%;
+    }
+    &-three-quart {
+        height: 75%;
+    }
+    &-quarter {
+        height: 25%;
+    }
+}
+
+.w {
+    &-half {
+        width: 50%;
+    }
+    &-three-quart {
+        width: 75%;
+    }
+    &-quarter {
+        width: 25%;
+    }
 }

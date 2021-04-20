@@ -8,11 +8,23 @@
 }
 
 .facebook-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(56, 97, 230);
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    width: 98%;
+    color: white;
+    border-radius: 0.25rem;
 }
 
 .facebook-logo {
-    padding-right: 0.5rem;
+    padding-right: 0.75rem;
+    padding-top:0.25rem;
     fill: white;
     stroke: white;
+}
+
+.login-title {
+    margin: 0% 0% 2% 0%;
 }

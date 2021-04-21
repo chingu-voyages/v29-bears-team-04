@@ -1,7 +1,6 @@
-import "./Header.scss";
-import Burger from "../../../images/hamburger-menu.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import HamburgerMenu from "../images/HamburgerMenu";
 
 const DropdownItems = [
     {
@@ -25,7 +24,7 @@ const DropdownItems = [
     },
 ];
 
-export default function Hamburger() {
+export default function HamburgerDropdown() {
     const [dropdownState, setDropdownState] = useState<Boolean>(false);
 
     const toggleDropdown = (e: React.MouseEvent<any>) => setDropdownState(!dropdownState);
@@ -34,10 +33,10 @@ export default function Hamburger() {
 
     return (
         <>
-            <div className="hamburger">
+            <div className="align-center">
                 <div className={dropdownState ? "dropdown active" : "dropdown"}>
                     <button className="burger-container" onClick={toggleDropdown}>
-                        <img src={Burger} alt="dropdown icon"></img>
+                        <HamburgerMenu width={30} height={30} />
                     </button>
                     <ul>
                         {dropdownState

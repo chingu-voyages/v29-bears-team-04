@@ -1,4 +1,3 @@
-import "./login.scss";
 import UnsplashLogo from "../generalComponents/images/UnsplashLogo";
 import FacebookLogo from "../generalComponents/images/FacebookLogo";
 
@@ -15,7 +14,7 @@ export default function Login() {
                 </div>
                 <button className="facebook-login">
                     <div className="flex-h-center">
-                        <FacebookLogo clas="facebook-logo" width={15} height={15} />
+                        <FacebookLogo cls="facebook-logo" width={15} height={15} />
                     </div>
                     <div>Login with Facebook</div>
                 </button>

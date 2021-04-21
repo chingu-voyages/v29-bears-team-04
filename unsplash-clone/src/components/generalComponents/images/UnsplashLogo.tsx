@@ -1,15 +1,17 @@
 type Props = {
     width: number;
     height: number;
+    cls?: string;
 };
 
-export default function UnsplashLogo({ width, height }: Props) {
+export default function UnsplashLogo({ width, height, cls }: Props) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width={width}
             height={height}
             viewBox="0 0 841 841"
+            className={cls}
         >
             <g fill="#000000">
                 <path

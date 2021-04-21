@@ -5,19 +5,17 @@ import FourZeroFour from "./generalComponents/FourZeroFour";
 import Header from "./generalComponents/header/Header";
 
 // Pages
-import AllTopics from "./topics/AllTopics";
-import Topic from "./topics/Topic";
-import Login from "./login/Login";
-import Register from "./register/Register";
-import Unsplash from "./unsplash/unsplash";
-
-import "./App.scss";
+import AllTopics from "./pages/AllTopics";
+import Topic from "./pages//Topic";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Unsplash from "./pages/Unsplash";
 
 function App() {
     return (
         <div className="App">
             <BrowserRouter>
-            <Header />
+                <Header />
                 <Switch>
                     {/* HomePage */}
                     <Route exact path="/" component={Unsplash} />

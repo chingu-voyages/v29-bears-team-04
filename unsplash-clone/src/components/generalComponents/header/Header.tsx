@@ -5,7 +5,7 @@ import UnsplashLogo from "../images/UnsplashLogo";
 
 export default function Header() {
     return (
-        <div className="flex py-2 px-2">
+        <div className="flex py-2 px-2 justify-between">
             <Link to="/">
                 <div className="flex">
                     <UnsplashLogo width={40} height={40} cls="pr-3" />

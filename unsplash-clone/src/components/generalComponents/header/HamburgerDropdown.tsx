@@ -37,6 +37,7 @@ export default function HamburgerDropdown() {
                     <button className="burger-container focus:outline-none" onClick={toggleDropdown}>
                         <HamburgerMenu width={30} height={30} cls="h-full w-full py-2"/>
                     </button>
+                    <div className={dropdownState ? "arrow-up absolute transition ease-in duration-100" : ""}></div>
                     <div className={dropdownState ? "dropdown active rounded bg-black absolute right-0 px-2 py-1 m-2 transition ease-in duration-100" : "dropdown"}>
                     <ul>
                         {dropdownState

@@ -1,9 +1,10 @@
 type Props = {
     width: number;
     height: number;
+    cls?: string;
 };
 
-export default function HamburgerMenu({ width, height }: Props) {
+export default function HamburgerMenu({ width, height, cls }: Props) {
     return (
         <svg
             version="1.1"
@@ -15,6 +16,7 @@ export default function HamburgerMenu({ width, height }: Props) {
             height={height}
             viewBox="0 0 122.879 103.609"
             enable-background="new 0 0 122.879 103.609"
+            className={cls}
         >
             <g>
                 <path

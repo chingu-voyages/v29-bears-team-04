@@ -14,7 +14,7 @@ export default function FacebookLogo({ width, height, cls }: Props) {
             width={width}
             height={height}
             viewBox="0 0 122.879 119.799"
-            enable-background="new 0 0 122.879 119.799"
+            enableBackground="new 0 0 122.879 119.799"
             className={cls}
         >
             <g>

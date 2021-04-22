@@ -2,7 +2,7 @@ import { useState } from "react";
 import Search from "../images/Search";
 
 export default function SearchBar() {
-    const [searchText, updateSearchText] = useState("");
+    const [searchText, updateSearchText] = useState<string>("");
 
     const changeText = (e: any) => {
         updateSearchText(e.target.value);

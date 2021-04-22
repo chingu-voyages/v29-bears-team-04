@@ -8,9 +8,9 @@ export default function FacebookLogo({ width, height, cls }: Props) {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 333333 333333"
-            shape-rendering="geometricPrecision"
-            text-rendering="geometricPrecision"
-            image-rendering="optimizeQuality"
+            shapeRendering="geometricPrecision"
+            textRendering="geometricPrecision"
+            imageRendering="optimizeQuality"
             width={width}
             height={height}
             className={cls}

@@ -16,7 +16,7 @@ export default function SearchBar() {
                 <input
                     placeholder="Search photos"
                     value={searchText}
-                    className="bg-transparent"
+                    className="flex w-full bg-transparent focus:outline-none"
                     onChange={changeText}
                 ></input>
             </form>

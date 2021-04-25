@@ -9,7 +9,7 @@ export default function SearchBar() {
     };
     return (
         <>
-            <form className="flex border rounded-2xl bg-gray-300 w-3/4 mr-3">
+            <form className="flex border rounded-2xl bg-gray-300 w-3/4">
                 <button className="search-btn">
                     <Search width={30} height={30} cls="px-2" />
                 </button>

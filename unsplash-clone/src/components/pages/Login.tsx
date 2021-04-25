@@ -8,10 +8,20 @@ import { login } from "../../redux/actions/userActions"
 
 export default function Login() {
     const user: any = useSelector((state:RootStateOrAny) => state.user)
+    // const useFetching = (login:any) => {
+    //     const dispatch = useDispatch()
+    
+    //     useEffect(() => {
+    //     dispatch(login());
+    //   }, [])
+    // }
+
+    // useFetching(login)
+
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(login())
-    }, [])
+    })
     return (
             <div className="login-container flex justify-center align-middle">
                 <h1>{user.name}</h1>

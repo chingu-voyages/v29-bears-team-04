@@ -1,5 +1,3 @@
-// import { ThunkAction } from "redux-thunk";
-
 export const login = () => {
   return dispatch => {
     fetch("https://unsplash-clone-server.herokuapp.com/login", {
@@ -9,6 +7,12 @@ export const login = () => {
       },
     })
       .then(resp => resp.json())
-      .then(user => dispatch({ type: "LOGIN_SUCCESS", payload: user }));
+      // .then(resp => {
+      //   console.log(resp);
+      // })
+      // .then(user => dispatch({ type: "LOGIN_SUCCESS", payload: user }))
+      .catch(error => {
+        debugger;
+      });
   };
 };

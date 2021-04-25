@@ -1,10 +1,17 @@
 import UnsplashLogo from "../generalComponents/images/UnsplashLogo";
 import FacebookLogo from "../generalComponents/images/FacebookLogo";
-import { useSelector, shallowEqual, RootStateOrAny } from "react-redux"
+import { useSelector, RootStateOrAny, useDispatch } from "react-redux"
+import React, { useState, useEffect } from 'react';
+import { login } from "../../redux/actions/userActions"
+
+
 
 export default function Login() {
     const user: any = useSelector((state:RootStateOrAny) => state.user)
-    // debugger
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(login())
+    }, [])
     return (
             <div className="login-container flex justify-center align-middle">
                 <h1>{user.name}</h1>

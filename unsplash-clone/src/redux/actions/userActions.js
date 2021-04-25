@@ -7,12 +7,12 @@ export const login = () => {
       },
     })
       .then(resp => resp.json())
-      // .then(resp => {
-      //   console.log(resp);
-      // })
+      .then(resp => {
+        console.log(resp);
+      })
       // .then(user => dispatch({ type: "LOGIN_SUCCESS", payload: user }))
       .catch(error => {
-        debugger;
+        console.log(error);
       });
   };
 };

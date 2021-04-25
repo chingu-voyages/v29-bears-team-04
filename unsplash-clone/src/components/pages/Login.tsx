@@ -1,9 +1,13 @@
 import UnsplashLogo from "../generalComponents/images/UnsplashLogo";
 import FacebookLogo from "../generalComponents/images/FacebookLogo";
+import { useSelector, shallowEqual, RootStateOrAny } from "react-redux"
 
 export default function Login() {
+    const user: any = useSelector((state:RootStateOrAny) => state.user)
+    // debugger
     return (
-            <div className="login-container flex justify-center py-20 h-90 ">
+            <div className="login-container flex justify-center align-middle">
+                <h1>{user.name}</h1>
                 <div className="flex flex-col flex-h-center upper pb-6">
                     <div className="flex-h-center pb-5">
                         <UnsplashLogo width={100} height={100} />

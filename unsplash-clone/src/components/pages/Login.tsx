@@ -8,15 +8,6 @@ import { login } from "../../redux/actions/userActions"
 
 export default function Login() {
     const user: any = useSelector((state:RootStateOrAny) => state.user)
-    // const useFetching = (login:any) => {
-    //     const dispatch = useDispatch()
-    
-    //     useEffect(() => {
-    //     dispatch(login());
-    //   }, [])
-    // }
-
-    // useFetching(login)
 
     const dispatch = useDispatch()
     useEffect(() => {

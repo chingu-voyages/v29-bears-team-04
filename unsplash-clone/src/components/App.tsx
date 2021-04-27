@@ -8,7 +8,7 @@ import Header from "./generalComponents/header/Header";
 import AllTopics from "./pages/AllTopics";
 import Topic from "./pages//Topic";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Join from "./pages/Join";
 import Unsplash from "./pages/Unsplash";
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
                     {/* HomePage */}
                     <Route exact path="/" component={Unsplash} />
 
-                    {/* Register Page */}
-                    <Route exact path="/join" component={Register} />
+                    {/* Join Page */}
+                    <Route exact path="/join" component={Join} />
 
                     {/* Login Page */}
                     <Route exact path="/login" component={Login} />

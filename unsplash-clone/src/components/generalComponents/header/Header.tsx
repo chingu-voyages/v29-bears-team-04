@@ -14,7 +14,7 @@ export default function Header() {
     const [displayHeader, setDisplayHeader] = useState(DisplayClass.DISPLAY);
 
     useEffect(() => {
-        location.pathname === "/login" || location.pathname === "/register"
+        location.pathname === "/login" || location.pathname === "/join"
             ? setDisplayHeader(DisplayClass.HIDE)
             : setDisplayHeader(DisplayClass.DISPLAY);
     },[location]);

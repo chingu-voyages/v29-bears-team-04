@@ -3,20 +3,32 @@ import FacebookLogo from "../generalComponents/images/FacebookLogo";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux"
 import React, { useState, useEffect } from 'react';
 import { login } from "../../redux/actions/userActions"
+import { getUsers } from "../../redux/actions/usersActions"
 
 
 
 export default function Login() {
-    const user: any = useSelector((state:RootStateOrAny) => state.user)
+    const users: any = useSelector((state:RootStateOrAny) => state.users.all)
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(login())
+        dispatch(getUsers())
     })
+
+    interface user {
+        id: number;
+        name: string;
+        email: string
+    }
+
+    
     return (
             <div className="login-container flex justify-center align-middle">
-                <h1>{user.name}</h1>
+
                 <div className="flex flex-col flex-h-center upper pb-6">
+                {users.map((user:user) => {
+            return <h1>{user.name}</h1>
+        })}
                     <div className="flex-h-center pb-5">
                         <UnsplashLogo width={100} height={100} />
                     </div>

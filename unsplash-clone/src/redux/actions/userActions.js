@@ -8,25 +8,38 @@ export const login = formData => {
       body: JSON.stringify(formData),
     })
       .then(resp => resp.json())
-      .then(user => dispatch({ type: "LOGIN_SUCCESS", payload: user }))
+      .then(user => {
+        if (user.success) {
+          dispatch({ type: "LOGIN_SUCCESS", payload: user });
+        } else {
+          dispatch({ type: "LOGIN_FAILURE", payload: user.errors });
+        }
+      })
       .catch(error => {
-        debugger;
+        console.log(error);
       });
   };
 };
 
-// export const getUsers = () => {
-//   return dispatch => {
-//     fetch("https://unsplash-clone-server.herokuapp.com/users", {
-//       method: "GET",
+// ts attempt:
+// interface form {
+//   name: string,
+//   password: string
+// }
+
+// export const login = (formData:form) => {
+//   return (dispatch: any) => {
+//     fetch("https://unsplash-clone-server.herokuapp.com/users/login", {
+//       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json",
 //       },
+//       body: JSON.stringify(formData),
 //     })
 //       .then(resp => resp.json())
-//       .then(resp => dispatch({ type: "USERS_RETRIEVED", payload: resp.data }))
+//       .then(user => dispatch({ type: "LOGIN_SUCCESS", payload: user }))
 //       .catch(error => {
-//         console.log(error);
+//         console.log(error)
 //       });
 //   };
 // };

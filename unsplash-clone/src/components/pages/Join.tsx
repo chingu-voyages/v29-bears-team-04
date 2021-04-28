@@ -1,4 +1,4 @@
-import FacebookLogo from "../generalComponents/images/FacebookLogo";
+import FacebookLogo from "../general/images/FacebookLogo";
 
 export default function Join() {
     return (

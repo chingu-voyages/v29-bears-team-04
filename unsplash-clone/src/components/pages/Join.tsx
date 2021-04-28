@@ -1,4 +1,4 @@
-import FacebookLogo from "../general/images/FacebookLogo";
+import FacebookButton from "../general/FacebookButton";
 
 export default function Join() {
     return (
@@ -14,17 +14,11 @@ export default function Join() {
                             Already have an account? <a href="/login">Login</a>
                         </div>
                     </div>
-                    {/* FB Button  */}
-                    <div className="w-full flex justify-center">
-                        <button className="flex justify-center items-center w-11/12 py-1 bg-blue-600 text-white rounded-md my-5">
-                            <FacebookLogo
-                                cls="fill-current mr-3 "
-                                width={15}
-                                height={15}
-                            />
-                            <div>Join with Facebook</div>
-                        </button>
-                    </div>
+                    <FacebookButton
+                        width={15}
+                        height={15}
+                        buttonText="Join with Facebook"
+                    />
                     <div className="mb-5 w-full flex justify-center">OR</div>
                     {/* form Part */}
                     <form className="w-full flex justify-center" action="">
@@ -33,6 +27,7 @@ export default function Join() {
                                 <label className="block" htmlFor="email">
                                     Email
                                 </label>
+                                
                                 <input
                                     className="w-full border-solid border-gray-300"
                                     id="email"

@@ -1,8 +1,8 @@
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 // General Components
-import FourZeroFour from "./generalComponents/FourZeroFour";
-import Header from "./generalComponents/header/Header";
+import FourZeroFour from "./general/FourZeroFour";
+import Header from "./general/header/Header";
 
 // Pages
 import AllTopics from "./pages/AllTopics";

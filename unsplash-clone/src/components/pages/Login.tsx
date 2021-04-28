@@ -1,5 +1,5 @@
-import UnsplashLogo from "../generalComponents/images/UnsplashLogo";
-import FacebookLogo from "../generalComponents/images/FacebookLogo";
+import UnsplashLogo from "../general/images/UnsplashLogo";
+import FacebookLogo from "../general/images/FacebookLogo";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { login } from "../../redux/actions/userActions";

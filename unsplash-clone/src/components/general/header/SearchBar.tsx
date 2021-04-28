@@ -1,12 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Search from "../images/Search";
 
 export default function SearchBar() {
     const [searchText, updateSearchText] = useState<string>("");
 
-    const changeText = (e: any) => {
-        updateSearchText(e.target.value);
-    };
     return (
         <>
             <form className="flex border rounded-2xl bg-gray-300 w-3/4">
@@ -17,7 +14,9 @@ export default function SearchBar() {
                     placeholder="Search photos"
                     value={searchText}
                     className="flex w-full bg-transparent focus:outline-none"
-                    onChange={changeText}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        updateSearchText(e.target.value);
+                    }}
                 ></input>
             </form>
         </>

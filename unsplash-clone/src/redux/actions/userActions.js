@@ -8,10 +8,7 @@ export const login = formData => {
       body: JSON.stringify(formData),
     })
       .then(resp => resp.json())
-      .then(resp => {
-        debugger;
-      })
-      // .then(user => dispatch({ type: "LOGIN_SUCCESS", payload: user }))
+      .then(user => dispatch({ type: "LOGIN_SUCCESS", payload: user }))
       .catch(error => {
         debugger;
       });

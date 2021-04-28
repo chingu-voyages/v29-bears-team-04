@@ -1,14 +1,12 @@
 const userReducer = (
   state = {
-    name: "zach",
-    email: "",
-    avatar: "",
+    loggedin: false,
   },
   action
 ) => {
   switch (action.type) {
     case "LOGIN_SUCCESS":
-      return { ...state, user: action.payload };
+      return { ...state, loggedin: true };
 
     default:
       return state;

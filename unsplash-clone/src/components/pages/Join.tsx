@@ -1,6 +1,16 @@
+import React, { useState } from "react";
 import FacebookButton from "../general/FacebookButton";
+import Form from "../general/Form";
+import Input from "../general/Input";
 
 export default function Join() {
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+
+    const handleSubmit = () => {
+        console.log(email, password);
+    };
+
     return (
         <div className="flex flex-col sm:flex-row w-screen h-screen">
             <div className="bg-red-500 w-screen h-1/3 sm:h-screen sm:w-1/3">
@@ -20,32 +30,26 @@ export default function Join() {
                         buttonText="Join with Facebook"
                     />
                     <div className="mb-5 w-full flex justify-center">OR</div>
-                    {/* form Part */}
-                    <form className="w-full flex justify-center" action="">
+                    <Form handleSubmit={handleSubmit}>
                         <div className="flex-col w-11/12">
                             <div className="pb-6">
                                 <label className="block" htmlFor="email">
                                     Email
                                 </label>
-                                
-                                <input
-                                    className="w-full border-solid border-gray-300"
-                                    id="email"
-                                    type="text"
-                                />
+                                <Input id="email" type="text" setChange={setEmail} />
                             </div>
                             <div className="">
                                 <label className="block" htmlFor="password">
                                     Password
                                 </label>
-                                <input
-                                    className="w-full border-solid border-gray-300"
+                                <Input
                                     id="password"
                                     type="text"
+                                    setChange={setPassword}
                                 />
                             </div>
                         </div>
-                    </form>
+                    </Form>
                 </div>
             </div>
         </div>

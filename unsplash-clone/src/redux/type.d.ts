@@ -1,14 +1,20 @@
+import { Action } from "redux";
+
 interface IUser {
     email: string;
     password: string;
     name: string;
 }
+
+interface UserAction extends Action {
+    payload: LoginAction | LogoutAction;
+}
+
 type UserState = {
     loggedIn: Boolean;
-    error?: [];
+    error?: [JSON];
 };
 
-type UserAction = {
-    type: string;
-    user: IUser;
-};
+type LoginAction = {};
+
+type LogoutAction = {};

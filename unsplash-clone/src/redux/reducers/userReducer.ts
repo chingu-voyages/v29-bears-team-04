@@ -1,15 +1,15 @@
-import { AnyAction } from "redux";
+import { ActionTypes } from "../actionTypes";
+import { UserAction, UserState } from "../type";
 
 const initialState: UserState = {
     loggedIn: false,
-    error: [],
 };
 
-export default function userReducer(state = initialState, action: AnyAction) {
+export default function userReducer(state = initialState, action: UserAction) {
     switch (action.type) {
-        case "LOGIN_SUCCESS":
+        case ActionTypes.LOGIN_SUCCESS:
             return { ...state, loggedIn: true, errors: [] };
-        case "LOGIN_FAILURE":
+        case ActionTypes.LOGIN_FAILURE:
             return { ...state, loggedIn: false, errors: action.payload };
 
         default:

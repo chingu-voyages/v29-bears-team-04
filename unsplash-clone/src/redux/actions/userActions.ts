@@ -1,3 +1,5 @@
+import { ActionTypes } from "../actionTypes";
+
 export const login = (formData:any) => {
     return (dispatch:any) => {
         fetch("https://unsplash-clone-server.herokuapp.com/users/login", {
@@ -10,9 +12,9 @@ export const login = (formData:any) => {
             .then((resp) => resp.json())
             .then((user) => {
                 if (user.success) {
-                    dispatch({ type: "LOGIN_SUCCESS", payload: user });
+                    dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
                 } else {
-                    dispatch({ type: "LOGIN_FAILURE", payload: user.errors });
+                    dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }
             })
             .catch((error) => {

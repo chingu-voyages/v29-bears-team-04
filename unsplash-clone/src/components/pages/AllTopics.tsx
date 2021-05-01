@@ -1,5 +1,6 @@
 import React from "react";
 import TopicIntro from "../general/TopicIntro";
+import TopicDisplay from "../general/TopicDisplay";
 
 import MockData from "../../MOCK_DATA.json";
 
@@ -15,12 +16,15 @@ export default function AllTopics() {
                 </p>
             </TopicIntro>
             <h2>All Topics</h2>
-            {MockData.map((topic: any) => {
-                <div>
-                    <h1> {topic.topic}</h1>
-                    <p>{topic.description}</p>
-                </div>;
-            })}
+            <div className="grid-cols-3 grid-flow-col gap-4">
+                {MockData.map((topic: any) => (
+                    <TopicDisplay
+                        topic={topic.topic}
+                        description={topic.description}
+                        contributors={topic.contributors}
+                    />
+                ))}
+            </div>
         </>
     );
 }

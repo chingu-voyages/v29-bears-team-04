@@ -1,39 +1,32 @@
 import UnsplashLogo from "../general/images/UnsplashLogo";
-import FacebookLogo from "../general/images/FacebookLogo";
+import FacebookButton from "../general/FacebookButton";
+import Form from "../general/Form";
+import Input from "../general/Input";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { login } from "../../redux/actions/userActions";
 import { getUsers } from "../../redux/actions/usersActions";
 
 export default function Login() {
-    const users: any = useSelector((state:RootStateOrAny) => state.users.all)
+    const users = useSelector((state: RootStateOrAny) => state.users.all);
     const [emailInput, setEmailInput] = useState("");
-    const [passInput, setPassInput] = useState("")
+    const [passInput, setPassInput] = useState("");
 
-
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getUsers())
-    })
+        dispatch(getUsers());
+    });
 
-
-    const handleSubmit = (e:any) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
         let formData = {
             email: emailInput,
             password: passInput,
-        }
-        dispatch(login(formData))
-    }
+        };
+        dispatch(login(formData));
+    };
 
-
-
-    interface user {
-        id: number;
-        name: string;
-        email: string
-    }
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-yellow-300">
             <div className="h-5/6 w-full">
@@ -47,48 +40,30 @@ export default function Login() {
                     </div>
                     <div className="flex justify-center">Welcome back.</div>
                 </div>
-                {/* FB Button  */}
-                <div className="w-full flex justify-center">
-                    <button className="flex justify-center items-center w-11/12 py-1 bg-blue-600 text-white rounded-md my-5">
-                        <FacebookLogo cls="fill-current mr-3 " width={15} height={15} />
-                        <div>Login with Facebook</div>
-                    </button>
-                </div>
+                <FacebookButton width={15} height={15} buttonText="Login with Facebook" />
                 <div className="mb-5 w-full flex justify-center">OR</div>
                 {/* form Part */}
-                <form className="flex-1 flex justify-center" action="" onSubmit={handleSubmit}>
+                <Form handleSubmit={handleSubmit}>
                     <div className="flex-col w-11/12">
                         <div className="pb-6">
                             <label className="block" htmlFor="email">
                                 Email
                             </label>
-                            <input
-                                className="w-full border-solid border-gray-300"
-                                id="email"
-                                type="text"
-                                onChange={(e) => {
-                                    setEmailInput(e.target.value)
-                                }}
-                            />
+                            <Input id="email" type="text" setChange={setEmailInput} />
                         </div>
                         <div className="">
                             <label className="block" htmlFor="password">
                                 Password
                             </label>
-                            <input
-                                className="w-full border-solid border-gray-300"
+                            <Input
                                 id="password"
                                 type="password"
-                                onChange={(e) => {
-                                    setPassInput(e.target.value)
-                                }}
+                                setChange={setPassInput}
                             />
                         </div>
-                            <button type="submit">
-                                submit
-                            </button>
+                        <button type="submit">submit</button>
                     </div>
-                </form>
+                </Form>
             </div>
         </div>
     );

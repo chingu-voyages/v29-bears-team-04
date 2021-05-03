@@ -23,7 +23,7 @@ export default function AllTopics() {
                         description={topic.description}
                         contributors={topic.contributors}
                     />
-                ))}
+                ))} 
             </div>
         </>
     );

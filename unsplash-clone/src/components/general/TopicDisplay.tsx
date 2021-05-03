@@ -25,6 +25,6 @@ export default function TopicDisplay({ topic, description, contributors }: Props
             </div>
         </div>
     );
+    
 }
-
 //TODO: Figure out why its not displaying correctly

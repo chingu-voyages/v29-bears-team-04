@@ -7,15 +7,14 @@ export const login = (formData:any) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            credentials: 'include',
+            credentials: 'same-origin',
             body: JSON.stringify(formData),
         })
             .then((resp) => resp.json())
             .then((user) => {
-                if (user.success) {
-                    // debugger;
+                if (user.success) { 
+                    dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
                     dispatch(getUserData())
-                    // dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }
@@ -36,7 +35,7 @@ export const getUserData = () => {
         })
             .then((resp) => resp.json())
             .then((user) => {
-                debugger;
+                console.log(user)
             })
             .catch((error) => {
                 console.log(error);

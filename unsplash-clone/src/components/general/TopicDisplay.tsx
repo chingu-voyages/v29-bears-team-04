@@ -12,7 +12,10 @@ type Props = {
         width: number,
         caption: string
     };
-    scrollPosition: number;
+    scrollPosition: {
+        x: number,
+        y: number
+    };
 };
 
 export default function TopicDisplay({ topic, description, contributors, image, scrollPosition }: Props) {
@@ -24,7 +27,7 @@ export default function TopicDisplay({ topic, description, contributors, image, 
             src={image.src}
             width={image.width}
             /></div>
-            {scrollPosition}
+            {scrollPosition.y}
             <div className="px-2">
                 <div className="py-2">
                     <div className="inline-block w-4/5">

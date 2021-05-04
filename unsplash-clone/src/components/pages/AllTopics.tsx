@@ -6,11 +6,13 @@ import TopicDisplay from "../general/TopicDisplay";
 import MockData from "../../MOCK_DATA.json";
 
 export default function AllTopics() {
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const [scrollPosition, setScrollPosition] = useState({x: 0, y: 0});
     const handleScroll = () => {
-    const position = window.pageYOffset;
+    const position = {
+        x: window.scrollX,
+        y: window.scrollY
+    }
     setScrollPosition(position);
-    console.log(position)
 };
 
 useEffect(() => {

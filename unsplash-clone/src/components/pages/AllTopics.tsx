@@ -1,10 +1,26 @@
 import React from "react";
+import { useState, useEffect } from 'react'
 import TopicIntro from "../general/TopicIntro";
 import TopicDisplay from "../general/TopicDisplay";
 
 import MockData from "../../MOCK_DATA.json";
 
 export default function AllTopics() {
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+    console.log(position)
+};
+
+useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // console.log(scrollPosition)
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+}, []);
+
     return (
         <>
             <TopicIntro
@@ -22,6 +38,8 @@ export default function AllTopics() {
                         topic={topic.topic}
                         description={topic.description}
                         contributors={topic.contributors}
+                        image={topic.image}
+                        scrollPosition={scrollPosition}
                     />
                 ))}
             </div>

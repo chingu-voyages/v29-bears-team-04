@@ -7,13 +7,13 @@ export default function SearchBar() {
     return (
         <>
             <form className="flex border rounded-2xl bg-gray-300 w-3/4">
-                <button className="search-btn">
-                    <Search width={30} height={30} cls="px-2" />
+                <button className="pl-2 pr-4">
+                    <Search width={20} height={20} />
                 </button>
                 <input
                     placeholder="Search photos"
                     value={searchText}
-                    className="flex w-full bg-transparent focus:outline-none"
+                    className="flex-1 bg-transparent focus:outline-none"
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         updateSearchText(e.target.value);
                     }}

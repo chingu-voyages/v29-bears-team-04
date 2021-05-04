@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import UnsplashLogo from "../images/UnsplashLogo";
 
 enum DisplayClass {
-    DISPLAY = "flex py-2 px-2 justify-between",
+    DISPLAY = "flex p-2 justify-between",
     HIDE = "hidden",
 }
 
@@ -24,7 +24,7 @@ export default function Header() {
             <Link to="/">
                 <div className="flex">
                     <UnsplashLogo width={40} height={40} cls="pr-3" />
-                    <div className="flex-col hidden lg:block">
+                    <div className="flex-col hidden md:block">
                         <p>Unsplash</p>
                         <p>Photos from everyone</p>
                     </div>

@@ -1,5 +1,7 @@
 import UnsplashLogo from "./images/UnsplashLogo";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+// need to explicitly call css file for effect you're using:
+import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 type Props = {
     topic: string;
@@ -18,31 +20,31 @@ type Props = {
     };
 };
 
-export default function TopicDisplay({ topic, description, contributors, image, scrollPosition }: Props) {
+export default function TopicDisplay ({ topic, description, contributors, image, scrollPosition }: Props) {
     return (
-        <div className="flex flex-col shadow-md rounded-lg bg-red-200 m-3">
-            <div className="flex-1 bg-blue-200 rounded-t-lg"><LazyLoadImage 
+        <div className="flex flex-col shadow-md rounded-lg bg-red-200">
+            <div className="block bg-blue-200 rounded-t-lg"><LazyLoadImage 
             alt={image.alt}
-            height={image.height}
+            height={400}
             src={image.src}
-            width={image.width}
+            width={600}
+            scrollPosition={scrollPosition}
+            effect={"opacity"}
             /></div>
-            {scrollPosition.y}
-            <div className="px-2">
-                <div className="py-2">
-                    <div className="inline-block w-4/5">
-                        <div className="block font-bold">{topic}</div>
-                        <div className="block">by Unsplash</div>
+            <div className="flex flex-col p-4">
+                <div className="grid grid-cols-4 gap-x-4 items-center pb-4">
+                    <div className="flex flex-col py-2 col-span-3">
+                        <h4 className="font-bold text-xl">{topic}</h4>
+                        <div>by Unsplash</div>
                     </div>
-                    <div className="inline-block border border-solid rounded-full">
-                        <UnsplashLogo width={15} height={15} />
+                    <div className="flex justify-center items-center p-2 rounded-full border border-solid sm:p-2 h-12 w-12 border-black">
+                        <UnsplashLogo width={42} height={40} />
                     </div>
                 </div>
-                <div className="block pb-2">{description}</div>
-                <div className="block py-2">{contributors}k contributions</div>
+                <div className="pb-2">{description}</div>
+                <div className="py-2">{contributors}k contributions</div>
             </div>
         </div>
     );
 }
 
-//TODO: Figure out why its not displaying correctly

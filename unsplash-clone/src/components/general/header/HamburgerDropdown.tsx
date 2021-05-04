@@ -34,11 +34,26 @@ export default function HamburgerDropdown() {
     return (
         <>
             <div className="align-center flex">
-                    <button className="focus:outline-none align-center" onClick={toggleDropdown}>
-                        <HamburgerMenu width={40} height={40} cls="py-2"/>
-                    </button>
-                    <div className={dropdownState ? "arrow-up absolute transition ease-in-out duration-100" : ""}></div>
-                    <div className={dropdownState ? "dropdown active rounded bg-black absolute right-0 px-2 py-1 m-2 transition ease-in-out duration-100" : "dropdown"}>
+                <button
+                    className="focus:outline-none align-center"
+                    onClick={toggleDropdown}
+                >
+                    <HamburgerMenu width={40} height={40} cls="py-2" />
+                </button>
+                <div
+                    className={
+                        dropdownState
+                            ? "arrow-up absolute transition ease-in-out duration-100"
+                            : ""
+                    }
+                ></div>
+                <div
+                    className={
+                        dropdownState
+                            ? "rounded bg-black absolute right-0 px-2 py-1 m-2 transition ease-in-out duration-100"
+                            : ""
+                    }
+                >
                     <ul>
                         {dropdownState
                             ? DropdownItems.map((item, index) => (
@@ -54,8 +69,8 @@ export default function HamburgerDropdown() {
                               ))
                             : null}
                     </ul>
-                    </div>
                 </div>
+            </div>
         </>
     );
 }

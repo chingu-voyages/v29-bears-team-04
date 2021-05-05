@@ -94,7 +94,7 @@ export const updateUserData = (formData:any) => {
 }
 
 export const getUserData = () => {
-    setTimeout((dispatch:any) => {
+    return (dispatch:any) => {
         fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
             method: "GET",
             headers: {
@@ -106,12 +106,12 @@ export const getUserData = () => {
             .then((user) => {
                 // dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
                 console.log(user.user)
-                // debugger;
+                debugger;
             })
             .catch((error) => {
                 console.log(error);
             });
-    }, 5000);
+    }
 };
 
 

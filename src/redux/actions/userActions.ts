@@ -19,7 +19,7 @@ export const login = (formData:any) => {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }
             })
-            // .then(() => getUserData())
+            .then(() => getUserData())
             .catch((error) => {
                 console.log(error);
             });
@@ -94,30 +94,24 @@ export const updateUserData = (formData:any) => {
 }
 
 export const getUserData = () => {
-    return async (dispatch:any) => {
-        await fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
+    setTimeout((dispatch:any) => {
+        fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-            }
+            },
+            credentials: "include"
         })
             .then((resp) => resp.json())
             .then((user) => {
-                dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
+                // dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
                 console.log(user.user)
-<<<<<<< HEAD
                 // debugger;
-=======
->>>>>>> parent of 71dff48... set time out and credentials include test
             })
             .catch((error) => {
                 console.log(error);
             });
-<<<<<<< HEAD
     }, 500);
-=======
-    };
->>>>>>> parent of 71dff48... set time out and credentials include test
 };
 
 

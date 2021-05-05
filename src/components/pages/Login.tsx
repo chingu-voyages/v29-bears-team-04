@@ -20,9 +20,9 @@ export default function Login() {
     
 
     const dispatch = useDispatch();
-    useEffect(() => {
-        cookieHasChanged()
-    }, [])
+    // useEffect(() => {
+    //     cookieHasChanged()
+    // }, [])
 
 
     const handleSubmit = (e: any) => {
@@ -31,10 +31,9 @@ export default function Login() {
             email: emailInput,
             password: passInput,
         };
-<<<<<<< HEAD
+
         dispatch(login(formData))
-=======
->>>>>>> parent of 71dff48... set time out and credentials include test
+
         // if (dispatch(login(formData))) {
         //     history.push('/')
         // }

@@ -4,7 +4,8 @@ import Form from "../general/Form";
 import Input from "../general/Input";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
-import { login } from "../../redux/actions/userActions";
+import { login, getUserData } from "../../redux/actions/userActions";
+import Cookies from 'js-cookie'
 // import { getUsers } from "../../redux/actions/usersActions";
 
 export default function Login() {
@@ -13,6 +14,12 @@ export default function Login() {
     const [passInput, setPassInput] = useState("");
 
     const dispatch = useDispatch();
+    useEffect(() => {
+        const cookie = Cookies.get()
+        if (cookie) {
+            dispatch(getUserData())
+        }
+    })
 
 
     const handleSubmit = (e: any) => {

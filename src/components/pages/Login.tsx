@@ -20,9 +20,9 @@ export default function Login() {
     
 
     const dispatch = useDispatch();
-    useEffect(() => {
-        cookieHasChanged()
-    }, [])
+    // useEffect(() => {
+    //     cookieHasChanged()
+    // }, [])
 
 
     const handleSubmit = (e: any) => {

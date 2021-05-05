@@ -62,11 +62,12 @@ export const register = (formData:any) => {
             .then((user) => {
                 if (user.success) { 
                     dispatch({ type: ActionTypes.REGISTER_SUCCESS, payload: user });
-                    dispatch(getUserData())
+                    
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }
             })
+            .then(() => dispatch(getUserData()))
             .catch((error) => {
                 console.log(error);
             });
@@ -94,7 +95,7 @@ export const updateUserData = (formData:any) => {
 }
 
 export const getUserData = () => {
-    (dispatch:any) => {
+    return (dispatch:any) => {
         fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
             method: "GET",
             headers: {

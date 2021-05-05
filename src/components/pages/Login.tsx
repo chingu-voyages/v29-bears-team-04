@@ -11,17 +11,18 @@ import { useHistory } from 'react-router-dom'
 
 export default function Login() {
     // const users = useSelector((state: RootStateOrAny) => state.users.all);
+    const user = useSelector((state: RootStateOrAny) => state.user);
     const [emailInput, setEmailInput] = useState("");
     const [passInput, setPassInput] = useState("");
     let history = useHistory()
 
     const dispatch = useDispatch();
-    useEffect(() => {
-        const cookie = Cookies.get()
-        if (cookie) {
-            dispatch(getUserData())
-        }
-    })
+    // useEffect(() => {
+    //     const cookie = Cookies.get()
+    //     if (cookie) {
+    //         dispatch(getUserData())
+    //     }
+    // })
 
 
     const handleSubmit = (e: any) => {

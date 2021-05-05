@@ -15,6 +15,7 @@ export const login = (formData:any) => {
             .then((user) => {
                 if (user.success) { 
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
+                    getUserData()
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }

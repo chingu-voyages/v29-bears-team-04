@@ -103,6 +103,7 @@ export const getUserData = () => {
             .then((resp) => resp.json())
             .then((user) => {
                 console.log(user)
+                // dispatch({ type: ActionTypes.USER_UPDATE_SUCCESS, payload: user.data })
             })
             .catch((error) => {
                 console.log(error);

@@ -1,5 +1,5 @@
 import { ActionTypes } from "../actionTypes";
-// import Cookies from 'js-cookie'
+import Cookies from 'js-cookie'
 
 export const login = (formData:any) => {
     return (dispatch:any) => {
@@ -15,15 +15,11 @@ export const login = (formData:any) => {
             .then((user) => {
                 if (user.success) { 
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
-                    getUserData()
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }
             })
-            // .then(() => {
-            //     console.log("in next .then")
-            //     getUserData()
-            // })
+            .then(() => getUserData())
             .catch((error) => {
                 console.log(error);
             });
@@ -66,12 +62,11 @@ export const register = (formData:any) => {
             .then((user) => {
                 if (user.success) { 
                     dispatch({ type: ActionTypes.REGISTER_SUCCESS, payload: user });
-                    
+                    dispatch(getUserData())
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }
             })
-            .then(() => dispatch(getUserData()))
             .catch((error) => {
                 console.log(error);
             });
@@ -99,7 +94,7 @@ export const updateUserData = (formData:any) => {
 }
 
 export const getUserData = () => {
-    return (dispatch:any) => {
+    setTimeout((dispatch:any) => {
         fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
             method: "GET",
             headers: {
@@ -116,7 +111,7 @@ export const getUserData = () => {
             .catch((error) => {
                 console.log(error);
             });
-    }
+    }, 500);
 };
 
 

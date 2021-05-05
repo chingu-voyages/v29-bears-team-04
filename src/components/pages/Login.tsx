@@ -31,9 +31,9 @@ export default function Login() {
             email: emailInput,
             password: passInput,
         };
-        if (dispatch(login(formData))) {
-            history.push('/')
-        }
+        // if (dispatch(login(formData))) {
+        //     history.push('/')
+        // }
 
     };
 

@@ -17,15 +17,12 @@ export default function Login() {
     const [passInput, setPassInput] = useState("");
     let history = useHistory()
 
-    if (cookieHasChanged()) getUserData();
+    
 
     const dispatch = useDispatch();
-    // useEffect(() => {
-    //     const cookie = Cookies.get()
-    //     if (cookie) {
-    //         dispatch(getUserData())
-    //     }
-    // })
+    useEffect(() => {
+        cookieHasChanged()
+    }, [])
 
 
     const handleSubmit = (e: any) => {

@@ -7,7 +7,7 @@ export const login = (formData:any) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            credentials: 'same-origin',
+            credentials: 'include',
             body: JSON.stringify(formData),
         })
             .then((resp) => resp.json())
@@ -54,7 +54,7 @@ export const register = (formData:any) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            credentials: 'same-origin',
+            credentials: 'include',
             body: JSON.stringify(formData),
         })
             .then((resp) => resp.json())

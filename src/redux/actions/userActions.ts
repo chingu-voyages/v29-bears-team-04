@@ -19,7 +19,7 @@ export const login = (formData:any) => {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }
             })
-            .then(() => getUserData())
+            // .then(() => getUserData())
             .catch((error) => {
                 console.log(error);
             });

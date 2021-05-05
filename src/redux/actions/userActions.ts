@@ -15,6 +15,7 @@ export const login = (formData:any) => {
             .then((user) => {
                 if (user.success) { 
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
+                    console.log("in login action")
                     getUserData()
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
@@ -79,7 +80,8 @@ export const updateUserData = (formData:any) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-            }
+            },
+            credentials: "include"
         })
         .then(resp => resp.json())
         .then(user => {
@@ -94,6 +96,7 @@ export const updateUserData = (formData:any) => {
 }
 
 export const getUserData = () => {
+    console.log('in getUserData')
     return (dispatch:any) => {
         fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
             method: "GET",
@@ -106,7 +109,7 @@ export const getUserData = () => {
             .then((user) => {
                 // dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
                 console.log(user.user)
-                debugger;
+                // debugger;
             })
             .catch((error) => {
                 console.log(error);

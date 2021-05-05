@@ -5,9 +5,10 @@ import Input from "../general/Input";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { login, getUserData } from "../../redux/actions/userActions";
-import Cookies from 'js-cookie'
 import { useHistory } from 'react-router-dom'
+import { cookieHasChanged } from '../general/CookieHasChanged'
 // import { getUsers } from "../../redux/actions/usersActions";
+
 
 export default function Login() {
     // const users = useSelector((state: RootStateOrAny) => state.users.all);
@@ -15,6 +16,8 @@ export default function Login() {
     const [emailInput, setEmailInput] = useState("");
     const [passInput, setPassInput] = useState("");
     let history = useHistory()
+
+    if (cookieHasChanged()) getUserData();
 
     const dispatch = useDispatch();
     // useEffect(() => {
@@ -37,6 +40,8 @@ export default function Login() {
         // }
 
     };
+
+    
 
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-yellow-300">

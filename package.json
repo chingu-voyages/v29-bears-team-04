@@ -5,6 +5,7 @@
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@reduxjs/toolkit": "^1.5.1",
+    "@types/": "fcannizzaro/react-use-cookie-watcher",
     "@types/js-cookie": "^2.2.6",
     "@types/react-lazy-load-image-component": "^1.5.1",
     "express": "^4.17.1",

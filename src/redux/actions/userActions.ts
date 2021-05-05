@@ -16,7 +16,7 @@ export const login = (formData:any) => {
                 if (user.success) { 
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
                     console.log(`from login: ${Cookies.get()}`)
-                    dispatch(getUserData())
+                    // dispatch(getUserData())
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }

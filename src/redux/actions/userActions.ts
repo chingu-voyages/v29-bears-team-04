@@ -1,5 +1,5 @@
 import { ActionTypes } from "../actionTypes";
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 
 export const login = (formData:any) => {
     return (dispatch:any) => {
@@ -94,8 +94,7 @@ export const updateUserData = (formData:any) => {
 }
 
 export const getUserData = () => {
-     (dispatch:any) => {
-        console.log('in getUserData')
+    setTimeout((dispatch:any) => {
         fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
             method: "GET",
             headers: {
@@ -105,13 +104,14 @@ export const getUserData = () => {
         })
             .then((resp) => resp.json())
             .then((user) => {
-                dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
+                // dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
                 console.log(user.user)
+                // debugger;
             })
             .catch((error) => {
                 console.log(error);
             });
-    };
+    }, 5000);
 };
 
 

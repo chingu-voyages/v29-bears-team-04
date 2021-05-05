@@ -94,22 +94,24 @@ export const updateUserData = (formData:any) => {
 }
 
 export const getUserData = () => {
-    return async (dispatch:any) => {
-        await fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
+    setTimeout((dispatch:any) => {
+        fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-            }
+            },
+            credentials: "include"
         })
             .then((resp) => resp.json())
             .then((user) => {
-                dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
+                // dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
                 console.log(user.user)
+                debugger;
             })
             .catch((error) => {
                 console.log(error);
             });
-    };
+    }, 5000);
 };
 
 

@@ -15,14 +15,15 @@ export const login = (formData:any) => {
             .then((user) => {
                 if (user.success) { 
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
+                    getUserData()
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }
             })
-            .then(() => {
-                console.log("in next .then")
-                getUserData()
-            })
+            // .then(() => {
+            //     console.log("in next .then")
+            //     getUserData()
+            // })
             .catch((error) => {
                 console.log(error);
             });
@@ -98,8 +99,8 @@ export const updateUserData = (formData:any) => {
 }
 
 export const getUserData = () => {
-    return async (dispatch:any) => {
-        await fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
+    return (dispatch:any) => {
+        fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

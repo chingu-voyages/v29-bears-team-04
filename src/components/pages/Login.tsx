@@ -6,12 +6,14 @@ import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { login, getUserData } from "../../redux/actions/userActions";
 import Cookies from 'js-cookie'
+import { useHistory } from 'react-router-dom'
 // import { getUsers } from "../../redux/actions/usersActions";
 
 export default function Login() {
     // const users = useSelector((state: RootStateOrAny) => state.users.all);
     const [emailInput, setEmailInput] = useState("");
     const [passInput, setPassInput] = useState("");
+    let history = useHistory()
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -28,7 +30,10 @@ export default function Login() {
             email: emailInput,
             password: passInput,
         };
-        dispatch(login(formData));
+        if (dispatch(login(formData))) {
+            history.push('/')
+        }
+
     };
 
     return (

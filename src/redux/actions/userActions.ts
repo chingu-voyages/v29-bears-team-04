@@ -15,8 +15,6 @@ export const login = (formData:any) => {
             .then((user) => {
                 if (user.success) { 
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
-                    console.log(`from login: ${Cookies.get()}`)
-                    // dispatch(getUserData())
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }
@@ -104,9 +102,8 @@ export const getUserData = () => {
         })
             .then((resp) => resp.json())
             .then((user) => {
-                // debugger;
-                console.log(`from getUserData: ${Cookies.get()}`)
-                // dispatch({ type: ActionTypes.USER_UPDATE_SUCCESS, payload: user.data })
+                dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
+                console.log(user.user)
             })
             .catch((error) => {
                 console.log(error);

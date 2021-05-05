@@ -4,10 +4,11 @@ interface IUser {
     email: string;
     password: string;
     name: string;
+    id: number
 }
 
 interface UserAction extends Action {
-    payload: LoginAction | LogoutAction;
+    payload: LoginAction | LogoutAction | id | email | name;
 }
 
 interface UserPhotosAction extends Action {
@@ -17,6 +18,9 @@ interface UserPhotosAction extends Action {
 type UserState = {
     loggedIn: Boolean;
     error?: [JSON];
+    name: string;
+    id: number;
+    email: string
 };
 
 type UserPhotosState = {

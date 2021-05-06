@@ -22,7 +22,7 @@ export const login = (formData:any) => {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
                 }
             })
-            .then(() => getUserData())
+            .then(() => setTimeout(getUserData(), 500))
             .catch((error) => {
                 console.log(error);
             });
@@ -98,7 +98,6 @@ export const updateUserData = (formData:any) => {
 
 export const getUserData = () => {
     return (dispatch:any) => {
-        setTimeout(() => {
         fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
             method: "GET",
             headers: {
@@ -116,9 +115,7 @@ export const getUserData = () => {
             .catch((error) => {
                 console.log(error);
             });
-    }, 500);
-}
-
+    }
 }
 
 

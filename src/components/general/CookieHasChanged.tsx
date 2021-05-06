@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 
 export const cookieHasChanged = () => {
     // let initCookies = Cookies.get();
-    console.log(document.cookie === null)
+    console.log(!!document.cookie)
     // setInterval(() => {
     //     if (initCookies !== Cookies.get()) {
     //         debugger;

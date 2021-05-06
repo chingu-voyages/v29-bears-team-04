@@ -107,8 +107,8 @@ export const getUserData = () => {
         })
             .then((resp) => resp.json())
             .then((user) => {
-                // dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
-                cookieHasChanged()
+                dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
+                // cookieHasChanged()
                 console.log(user.user)
                 // debugger;
             })

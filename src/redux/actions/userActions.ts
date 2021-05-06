@@ -1,5 +1,7 @@
 import { ActionTypes } from "../actionTypes";
 // import Cookies from 'js-cookie'
+import { cookieHasChanged } from '../../components/general/CookieHasChanged'
+
 
 export const login = (formData:any) => {
     return (dispatch:any) => {
@@ -14,6 +16,7 @@ export const login = (formData:any) => {
             .then((resp) => resp.json())
             .then((user) => {
                 if (user.success) { 
+                    cookieHasChanged()
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
@@ -105,6 +108,7 @@ export const getUserData = () => {
             .then((resp) => resp.json())
             .then((user) => {
                 // dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
+                cookieHasChanged()
                 console.log(user.user)
                 // debugger;
             })

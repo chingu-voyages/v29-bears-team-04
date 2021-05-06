@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 
 export const cookieHasChanged = () => {
     // let initCookies = Cookies.get();
+    console.log(Cookies.get())
     // setInterval(() => {
     //     if (initCookies !== Cookies.get()) {
     //         debugger;
@@ -10,6 +11,6 @@ export const cookieHasChanged = () => {
     //         return true;
     //     } 
     // }, 100)
-    // return false;
+    return false;
 
 }

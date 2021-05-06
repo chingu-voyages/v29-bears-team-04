@@ -1,5 +1,5 @@
 import { ActionTypes } from "../actionTypes";
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 
 export const login = (formData:any) => {
     return (dispatch:any) => {

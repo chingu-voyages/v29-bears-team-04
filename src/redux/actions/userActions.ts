@@ -1,15 +1,30 @@
 import { ActionTypes } from "../actionTypes";
 
+
+export const dummyLogin = () => {
+    return (dispatch:any) => {
+        dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: {}})
+    // setTimeout(dummyGetData(), 500)
+    }
+}
+
+export const dummyGetData = () => {
+    const user = {
+        id: 6,
+        name: "zach",
+        email: "zach@zach.com"
+    }
+    return (dispatch:any) => {
+        console.log("in dispatch")
+        dispatch({type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user})
+    }
+    
+}
+
+
+
+
 export const login = (formData:any) => {
-    // for debugging:
-    // return (dispatch:any) => {
-    //     console.log("in dispatch")
-    //     dispatch({type: ActionTypes.GET_USER_DATA_SUCCESS, payload: {
-    //         id: 6,
-    //         name: "zach",
-    //         email: "zach@zach.com"
-    //     }})
-    // }
     return (dispatch:any) => {
         fetch("https://unsplash-clone-server.herokuapp.com/users/login", {
             method: "POST",

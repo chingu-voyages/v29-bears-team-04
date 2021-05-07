@@ -17,13 +17,12 @@ interface UserPhotosAction extends Action {
 
 type UserState = {
     loggedIn: Boolean;
-    error?: [JSON];
+    errors?: [JSON];
     userData: {
         name: string;
-    id: number;
-    email: string
+        id: number;
+        email: string
     }
-    
 };
 
 type UserPhotosState = {
@@ -38,7 +37,9 @@ type LogoutAction = {
     loggedIn: Boolean;
 };
 
-type UserDataAction = IUserData;
+// type UserDataAction = IUserData;
+
+type UserDataAction = {};
 
 
 

@@ -27,7 +27,6 @@ export default function userReducer(state = initialState, action: UserAction) {
         case ActionTypes.GET_USER_DATA_SUCCESS:
             console.log(`from reducer: ${action.payload}`)
             return {...state, userData: action.payload}
-
         default:
             return state;
     }

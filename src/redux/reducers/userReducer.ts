@@ -23,7 +23,7 @@ export default function userReducer(state = initialState, action: UserAction) {
             return {...state,errors: action.payload}
         case ActionTypes.GET_USER_DATA_SUCCESS:
             console.log(action.payload)
-            return {...state, id: action.payload.id, name: action.payload.id, email: action.payload.email}
+            return {...state, id: action.payload.id, name: action.payload.name, email: action.payload.email}
 
         default:
             return state;

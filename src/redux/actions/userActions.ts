@@ -4,6 +4,15 @@ import { cookieHasChanged } from '../../components/general/CookieHasChanged'
 
 
 export const login = (formData:any) => {
+    // for debugging:
+    // return (dispatch:any) => {
+    //     console.log("in dispatch")
+    //     dispatch({type: ActionTypes.GET_USER_DATA_SUCCESS, payload: {
+    //         id: 6,
+    //         name: "zach",
+    //         email: "zach@zach.com"
+    //     }})
+    // }
     return (dispatch:any) => {
         fetch("https://unsplash-clone-server.herokuapp.com/users/login", {
             method: "POST",
@@ -109,13 +118,14 @@ export const getUserData = () => {
             .then((user) => {
                 dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
                 // cookieHasChanged()
-                console.log(user.user)
+                // console.log(user.user)
                 // debugger;
             })
             .catch((error) => {
                 console.log(error);
             });
     }
+    
 }
 
 

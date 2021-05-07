@@ -112,7 +112,7 @@ export const getUserData = () => {
         })
             .then((resp) => resp.json())
             .then((user) => {
-                dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: {...user.user }})
+                dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
             })
             .catch((error) => {
                 console.log(error);

@@ -25,7 +25,7 @@ export const login = (formData:any) => {
             .then((resp) => resp.json())
             .then((user) => {
                 if (user.success) { 
-                    cookieHasChanged()
+                    // cookieHasChanged()
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user });
                 } else {
                     dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: user.errors });
@@ -116,6 +116,7 @@ export const getUserData = () => {
         })
             .then((resp) => resp.json())
             .then((user) => {
+                console.log(user.user)
                 dispatch({ type: ActionTypes.GET_USER_DATA_SUCCESS, payload: user.user })
                 // cookieHasChanged()
                 // console.log(user.user)

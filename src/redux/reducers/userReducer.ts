@@ -3,9 +3,12 @@ import { UserAction, UserState } from "../type";
 
 const initialState: UserState = {
     loggedIn: false,
-    id: 0,
-    name: "",
-    email: ""
+    userData: {
+        id: 0,
+        name: "",
+        email: ""
+    }
+    
     
 };
 
@@ -23,7 +26,7 @@ export default function userReducer(state = initialState, action: UserAction) {
             return {...state,errors: action.payload}
         case ActionTypes.GET_USER_DATA_SUCCESS:
             console.log(action.payload)
-            return {...state, id: action.payload.id, name: action.payload.name, email: action.payload.email}
+            return {...state, userData: action.payload}
 
         default:
             return state;

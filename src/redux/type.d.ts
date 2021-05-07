@@ -2,7 +2,7 @@ import { Action } from "redux";
 
 interface IUser {
     email: string;
-    password: string;
+    password?: string;
     name: string;
     id: number
 }
@@ -18,20 +18,27 @@ interface UserPhotosAction extends Action {
 type UserState = {
     loggedIn: Boolean;
     error?: [JSON];
-    name: string;
+    userData: {
+        name: string;
     id: number;
     email: string
+    }
+    
 };
 
 type UserPhotosState = {
     all: []
 }
 
-type LoginAction = {};
+type LoginAction = {
+    loggedIn: Boolean;
+};
 
-type LogoutAction = {};
+type LogoutAction = {
+    loggedIn: Boolean;
+};
 
-type userDataAction = {};
+type userDataAction = IUser;
 
 
 

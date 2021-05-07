@@ -25,7 +25,7 @@ export default function userReducer(state = initialState, action: UserAction) {
         case ActionTypes.LOG_OUT_FAILURE:
             return {...state,errors: action.payload}
         case ActionTypes.GET_USER_DATA_SUCCESS:
-            console.log(action.payload)
+            console.log(`from reducer: ${action.payload}`)
             return {...state, userData: action.payload}
 
         default:

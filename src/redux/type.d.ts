@@ -38,7 +38,7 @@ type LogoutAction = {
     loggedIn: Boolean;
 };
 
-type userDataAction = IUserData;
+type UserDataAction = IUserData;
 
 
 

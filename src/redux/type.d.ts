@@ -8,7 +8,7 @@ interface IUser {
 }
 
 interface UserAction extends Action {
-    payload: LoginAction | LogoutAction | id | email | name;
+    payload: LoginAction | LogoutAction | UserDataAction;
 }
 
 interface UserPhotosAction extends Action {
@@ -30,6 +30,8 @@ type UserPhotosState = {
 type LoginAction = {};
 
 type LogoutAction = {};
+
+type userDataAction = {};
 
 
 

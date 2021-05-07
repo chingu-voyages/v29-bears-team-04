@@ -1,6 +1,6 @@
 import { Action } from "redux";
 
-interface IUser {
+interface IUserData {
     email: string;
     password?: string;
     name: string;
@@ -38,7 +38,7 @@ type LogoutAction = {
     loggedIn: Boolean;
 };
 
-type userDataAction = IUser;
+type userDataAction = IUserData;
 
 
 

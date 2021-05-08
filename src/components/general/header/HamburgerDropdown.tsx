@@ -2,74 +2,45 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "../images/HamburgerMenu";
 
-const DropdownItems = [
-    {
-        title: "Home",
-        path: "/",
-    },
+type HamburgerDrops = {
+    text: string;
+    path: string;
+};
 
-    {
-        title: "Join",
-        path: "/join",
-    },
+type Props = {
+    drops: HamburgerDrops[];
+};
 
-    {
-        title: "Login",
-        path: "/login",
-    },
+enum DropDownClass {
+    DISPLAY = "absolute top-12 right-1 bg-black",
+    HIDE = "hidden",
+}
 
-    {
-        title: "Topics",
-        path: "/t/",
-    },
-];
-
-export default function HamburgerDropdown() {
-    const [dropdownState, setDropdownState] = useState<Boolean>(false);
-
-    const toggleDropdown = (e: React.MouseEvent<any>) => setDropdownState(!dropdownState);
-
-    const closeMobileMenu = (e: React.MouseEvent<any>) => setDropdownState(false);
+export default function HamburgerDropdown({ drops }: Props) {
+    const [toggle, setToggle] = useState<Boolean>(false);
 
     return (
         <>
-            <div className="align-center flex">
+            <div className="relative block">
                 <button
                     className="focus:outline-none align-center"
-                    onClick={toggleDropdown}
+                    onClick={() => setToggle(!toggle)}
                 >
                     <HamburgerMenu width={40} height={40} cls="py-2" />
                 </button>
-                <div
-                    className={
-                        dropdownState
-                            ? "arrow-up absolute transition ease-in-out duration-100"
-                            : ""
-                    }
-                ></div>
-                <div
-                    className={
-                        dropdownState
-                            ? "rounded bg-black absolute right-0 px-2 py-1 m-2 transition ease-in-out duration-100"
-                            : ""
-                    }
-                >
-                    <ul>
-                        {dropdownState
-                            ? DropdownItems.map((item, index) => (
-                                  <li className="block text-white px-4 py-1">
-                                      <Link
-                                          key={index}
-                                          to={item.path}
-                                          onClick={closeMobileMenu}
-                                      >
-                                          {item.title}
-                                      </Link>
-                                  </li>
-                              ))
-                            : null}
-                    </ul>
-                </div>
+
+                <ul className={toggle ? DropDownClass.DISPLAY : DropDownClass.HIDE}>
+                    <div className="relative">
+                        <div className="bg-black absolute w-4 h-4 origin-bottom-right transform rotate-45 right-3" />
+                        {drops.map((item, index) => (
+                            <li className="block text-white px-4 py-1">
+                                <Link key={index} to={item.path}>
+                                    {item.text}
+                                </Link>
+                            </li>
+                        ))}
+                    </div>
+                </ul>
             </div>
         </>
     );

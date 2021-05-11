@@ -19,7 +19,7 @@ export default function TabBar({ tabs }: Props) {
 
     return (
         <div className="px-2 pt-2 shadow-md flex justify-between">
-            <div className="w-9/12 sm:w-11/12 pt-3 overflow-scroll whitespace-nowrap">
+            <div className="w-9/12 sm:w-11/12 pt-3 whitespace-nowrap overflow-hidden">
                 {tabs.map((tab) => (
                     <li
                         className={

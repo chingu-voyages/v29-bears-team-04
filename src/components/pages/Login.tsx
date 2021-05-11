@@ -4,10 +4,8 @@ import Form from "../general/Form";
 import Input from "../general/Input";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
-import { login, getUserData } from "../../redux/actions/userActions";
+import { loginUser, logoutUser } from "../../redux/users/userActions";
 import { useHistory } from 'react-router-dom'
-import { cookieHasChanged } from '../general/CookieHasChanged'
-// import { getUsers } from "../../redux/actions/usersActions";
 
 
 export default function Login() {
@@ -20,9 +18,6 @@ export default function Login() {
     
 
     const dispatch = useDispatch();
-    // useEffect(() => {
-    //     cookieHasChanged()
-    // }, [])
 
 
     const handleSubmit = (e: any) => {
@@ -31,14 +26,12 @@ export default function Login() {
             email: emailInput,
             password: passInput,
         };
-
-        dispatch(login(formData))
-
-        // if (dispatch(login(formData))) {
-        //     history.push('/')
-        // }
-
+        dispatch(loginUser(formData))
     };
+
+    const handleLogout = () => {
+        dispatch(logoutUser())
+    }
 
     
 
@@ -79,6 +72,7 @@ export default function Login() {
                         <button type="submit">submit</button>
                     </div>
                 </Form>
+                <button onClick={handleLogout}>logout</button>
             </div>
         </div>
     );

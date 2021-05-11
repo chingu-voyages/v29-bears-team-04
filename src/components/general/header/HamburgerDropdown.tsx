@@ -12,7 +12,7 @@ type Props = {
 };
 
 enum DropDownClass {
-    DISPLAY = "absolute top-12 right-1 bg-black",
+    DISPLAY = "absolute top-12 right-1 bg-black rounded-lg",
     HIDE = "hidden",
 }
 
@@ -23,17 +23,17 @@ export default function HamburgerDropdown({ drops }: Props) {
         <>
             <div className="relative block">
                 <button
-                    className="focus:outline-none align-center"
+                    className="focus:outline-none align-center px-2"
                     onClick={() => setToggle(!toggle)}
                 >
-                    <HamburgerMenu width={40} height={40} cls="py-2" />
+                    <HamburgerMenu width={25} height={25} cls="mt-1" />
                 </button>
 
                 <ul className={toggle ? DropDownClass.DISPLAY : DropDownClass.HIDE}>
-                    <div className="relative">
-                        <div className="bg-black absolute w-4 h-4 origin-bottom-right transform rotate-45 right-3" />
+                    <div className="relative text-white">
+                        <div className="bg-black w-4 h-4 absolute origin-bottom-right transform rotate-45 right-3" />
                         {drops.map((item, index) => (
-                            <li className="block text-white px-4 py-1">
+                            <li className="block w-56 pl-3 py-3">
                                 <Link key={index} to={item.path}>
                                     {item.text}
                                 </Link>

@@ -15,11 +15,11 @@ enum TabsClass {
 
 export default function TabBar({ tabs }: Props) {
     const location = useLocation();
-    console.log(location.pathname)
+    console.log(location.pathname);
 
     return (
-        <div className="px-2 shadow-md flex justify-between">
-            <div className="w-9/12 pt-3 overflow-x-auto whitespace-nowrap">
+        <div className="px-2 pt-2 shadow-md flex justify-between">
+            <div className="w-9/12 sm:w-11/12 pt-3 overflow-scroll whitespace-nowrap">
                 {tabs.map((tab) => (
                     <li
                         className={
@@ -28,12 +28,16 @@ export default function TabBar({ tabs }: Props) {
                                 : TabsClass.FREE
                         }
                     >
-                        <Link to={tab.path}>{tab.text}</Link>
+                        <Link className="opacity-75" to={tab.path}>
+                            {tab.text}
+                        </Link>
                     </li>
                 ))}
             </div>
             <div className="py-3">
-                <Link to="/t">View All</Link>
+                <Link className="opacity-75" to="/t">
+                    View All
+                </Link>
             </div>
         </div>
     );

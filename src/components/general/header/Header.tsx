@@ -25,6 +25,11 @@ const HamburgerProps = [
     { text: "About", path: "#About" },
     { text: "Login", path: "/login" },
     { text: "Join", path: "/join" },
+    { text: "Wallpapers", path: "#wallpapers" },
+    { text: "Brands", path: "#Brands" },
+    { text: "Blog", path: "#Blog" },
+    { text: "Collections", path: "#Collections" },
+    { text: "Explore", path: "#Explore" },
 ];
 
 export default function Header() {

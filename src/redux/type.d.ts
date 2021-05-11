@@ -1,14 +1,14 @@
 import { Action } from "redux";
 
-interface IUserData {
+interface IUser {
     email: string;
-    password?: string;
+    password: string;
     name: string;
     id: number
 }
 
 interface UserAction extends Action {
-    payload: LoginAction | LogoutAction | UserDataAction;
+    payload: LoginAction | LogoutAction | id | email | name;
 }
 
 interface UserPhotosAction extends Action {
@@ -17,29 +17,19 @@ interface UserPhotosAction extends Action {
 
 type UserState = {
     loggedIn: Boolean;
-    errors?: [JSON];
-    userData: {
-        name: string;
-        id: number;
-        email: string
-    }
+    error?: [JSON];
+    name: string;
+    id: number;
+    email: string
 };
 
 type UserPhotosState = {
     all: []
 }
 
-type LoginAction = {
-    loggedIn: Boolean;
-};
+type LoginAction = {};
 
-type LogoutAction = {
-    loggedIn: Boolean;
-};
-
-// type UserDataAction = IUserData;
-
-type UserDataAction = {};
+type LogoutAction = {};
 
 
 

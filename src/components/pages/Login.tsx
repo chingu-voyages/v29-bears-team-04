@@ -4,7 +4,7 @@ import Form from "../general/Form";
 import Input from "../general/Input";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
-import { login, dummyLogin, dummyGetData } from "../../redux/actions/userActions";
+import { loginUser } from "../../redux/users/userActions";
 import { useHistory } from 'react-router-dom'
 import { cookieHasChanged } from '../general/CookieHasChanged'
 // import { getUsers } from "../../redux/actions/usersActions";
@@ -32,8 +32,8 @@ export default function Login() {
             password: passInput,
         };
 
-        // dispatch(login(formData))
-        dispatch(dummyGetData())
+        dispatch(loginUser(formData))
+        // dispatch(dummyGetData())
 
         // if (dispatch(login(formData))) {
         //     history.push('/')

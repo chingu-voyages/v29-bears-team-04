@@ -7,7 +7,7 @@ export const loginUser = (userLogin: UserLogin) => async (dispatch: Dispatch<Use
       type: LOGIN_LOADING
     });
 
-    await fetch("https://us-server-test.herokuapp.com/users/login", {
+    await fetch("https://unsplash-clone-server.herokuapp.com/users/login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export const loginUser = (userLogin: UserLogin) => async (dispatch: Dispatch<Use
       type: LOGIN_SUCCESS
     });
 
-    const res = await fetch("https://us-server-test.herokuapp.com/users/me", {
+    const res = await fetch("https://unsplash-clone-server.herokuapp.com/users/me", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

@@ -2,6 +2,7 @@ import {
   LOGIN_LOADING,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
+  LOGOUT_USER,
   iUser,
   UserDispatchTypes,
   SET_CURRENT_USER
@@ -46,6 +47,11 @@ const userReducer = (state: userState = INITIAL_STATE, action: UserDispatchTypes
         ...state,
         currentUser: action.payload
       }
+      case LOGOUT_USER:
+        return {
+          ...state,
+          isLoggedIn: false
+        }
     default: 
       return state
   }

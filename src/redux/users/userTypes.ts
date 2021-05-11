@@ -2,6 +2,7 @@ export const LOGIN_LOADING = "LOGIN_LOADING";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILED = "LOGIN_FAILED";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
 
 export interface iUser {
   id: number,
@@ -12,6 +13,10 @@ export interface iUser {
 export interface UserLogin {
   email: string,
   password: string,
+}
+
+export interface UserLogout {
+  type: typeof LOGOUT_USER
 }
 
 export interface LoginLoading {
@@ -36,4 +41,5 @@ export type UserDispatchTypes =
   LoginLoading |
   LoginSuccess |
   LoginFailed |
-  SetCurrentUser
+  SetCurrentUser |
+  UserLogout

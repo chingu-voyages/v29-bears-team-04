@@ -1,4 +1,4 @@
-import { iUser, LOGIN_FAILED, LOGIN_LOADING, LOGIN_SUCCESS, SET_CURRENT_USER, UserDispatchTypes, UserLogin } from './userTypes';
+import { iUser, LOGIN_FAILED, LOGIN_LOADING, LOGIN_SUCCESS, SET_CURRENT_USER, LOGOUT_USER, UserDispatchTypes, UserLogin} from './userTypes';
 import { Dispatch } from 'redux';
 
 export const loginUser = (userLogin: UserLogin) => async (dispatch: Dispatch<UserDispatchTypes>) => {
@@ -40,5 +40,26 @@ export const loginUser = (userLogin: UserLogin) => async (dispatch: Dispatch<Use
       type: LOGIN_FAILED,
       payload: error
     })
+  }
+}
+
+
+export const logoutUser = () => async (dispatch: Dispatch<UserDispatchTypes>) => {
+  try {
+    await fetch("https://unsplash-clone-server.herokuapp.com/users/logout", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    credentials: 'include'
+                }).then((resp) => resp.json()).then((resp) => {
+                  console.log(resp)
+                })
+
+                dispatch({
+                  type: LOGOUT_USER
+                });
+  } catch (error) {
+    console.log(error)
   }
 }

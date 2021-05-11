@@ -51,7 +51,7 @@ const userReducer = (state: userState = INITIAL_STATE, action: UserDispatchTypes
         return {
           ...state,
           isLoggedIn: false,
-          currentUser: {} as iUser
+          currentUser: {}
         }
     default: 
       return state

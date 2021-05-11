@@ -50,7 +50,8 @@ const userReducer = (state: userState = INITIAL_STATE, action: UserDispatchTypes
       case LOGOUT_USER:
         return {
           ...state,
-          isLoggedIn: false
+          isLoggedIn: false,
+          currentUser: {}
         }
     default: 
       return state

@@ -48,7 +48,7 @@ export default function Login() {
     
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-yellow-300">
+        <div className="flex flex-col items-center justify-center h-screen ">
             <div className="h-5/6 w-full">
                 {/* Logo Part */}
                 <div className="flex-col pb-6">

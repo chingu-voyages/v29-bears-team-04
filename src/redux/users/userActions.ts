@@ -1,4 +1,4 @@
-import { iUser, LOGIN_FAILED, LOGIN_LOADING, LOGIN_SUCCESS, SET_CURRENT_USER, LOGOUT_USER, UserDispatchTypes, UserLogin} from './userTypes';
+import { iUser, LOGIN_FAILED, LOGIN_LOADING, LOGIN_SUCCESS, SET_CURRENT_USER, LOGOUT_USER, REDIRECT, UserDispatchTypes, UserLogin, CLEAR_HISTORY} from './userTypes';
 import { Dispatch } from 'redux';
 
 export const loginUser = (userLogin: UserLogin) => async (dispatch: Dispatch<UserDispatchTypes>) => {
@@ -26,12 +26,16 @@ export const loginUser = (userLogin: UserLogin) => async (dispatch: Dispatch<Use
                         "Content-Type": "application/json",
                     },
                     credentials: "include"
-                }).then((resp) => resp.json());
+                }).then((resp) => resp.json())
 
     console.log("RESPONSE:", res);
     dispatch({
       type: SET_CURRENT_USER,
       payload: res.user 
+    })
+    dispatch({
+      type: REDIRECT,
+      payload: {link: "/"}
     })
 
   } catch (error) {
@@ -39,6 +43,10 @@ export const loginUser = (userLogin: UserLogin) => async (dispatch: Dispatch<Use
     dispatch({
       type: LOGIN_FAILED,
       payload: error
+    })
+    dispatch({
+      type: REDIRECT,
+      payload: {link: "/"}
     })
   }
 }
@@ -60,6 +68,20 @@ export const logoutUser = () => async (dispatch: Dispatch<UserDispatchTypes>) =>
                   type: LOGOUT_USER
                 });
   } catch (error) {
+    dispatch({
+    type: REDIRECT,
+    payload: {link: "/"}
+  })
     console.log(error)
   }
 }
+
+export const redirect = (link:any) => {
+  console.log("=== REDIRECT ACTION DISPATCHED ===");
+  return { type: REDIRECT, payload: link };
+};
+
+export const clearHistory = () => {
+  console.log("=== CLEAR_HISTORY ACTION DISPATCHED ===");
+  return { type: CLEAR_HISTORY };
+};

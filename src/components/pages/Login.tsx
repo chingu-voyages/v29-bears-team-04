@@ -4,7 +4,7 @@ import Form from "../general/Form";
 import Input from "../general/Input";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
-import { loginUser, logoutUser } from "../../redux/users/userActions";
+import { loginUser, logoutUser, clearHistory } from "../../redux/users/userActions";
 import { useHistory } from 'react-router-dom'
 
 
@@ -13,11 +13,23 @@ export default function Login() {
     const user = useSelector((state: RootStateOrAny) => state.user);
     const [emailInput, setEmailInput] = useState("");
     const [passInput, setPassInput] = useState("");
+
     let history = useHistory()
-
-    
-
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        redirect()
+    })
+
+
+    const redirect = () => {
+        if (user.historyProps) {
+        let redirect = user.historyProps.link
+        dispatch(clearHistory())
+        history.push(redirect)
+    }
+}
+
 
 
     const handleSubmit = (e: any) => {

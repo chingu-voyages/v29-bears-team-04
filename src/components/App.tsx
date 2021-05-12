@@ -24,7 +24,7 @@ function App() {
                     <Route exact path="/join" component={Join} />
 
                     {/* Login Page */}
-                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/login" component={Login}/>
 
                     {/* All Topics Page  */}
                     <Route exact path="/t/" component={AllTopics} />

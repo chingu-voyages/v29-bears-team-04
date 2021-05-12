@@ -3,6 +3,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILED,
   LOGOUT_USER,
+  REDIRECT,
+  CLEAR_HISTORY,
   iUser,
   UserDispatchTypes,
   SET_CURRENT_USER
@@ -12,7 +14,8 @@ export interface userState {
   isLoggedIn: boolean,
   loading: boolean,
   currentUser: iUser,
-  errors?: any
+  errors?: any,
+  historyProps?: string
 };
 
 export const INITIAL_STATE = {
@@ -49,6 +52,16 @@ const userReducer = (state: userState = INITIAL_STATE, action: UserDispatchTypes
       }
       case LOGOUT_USER:
         return INITIAL_STATE
+      case REDIRECT:
+        return {
+          ...state,
+          historyProps: action.payload
+        }
+      case CLEAR_HISTORY:
+        console.log("in clear history")
+        let oldState = {...state}
+        delete oldState.historyProps
+          return oldState
     default: 
       return state
   }

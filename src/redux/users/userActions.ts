@@ -44,10 +44,6 @@ export const loginUser = (userLogin: UserLogin) => async (dispatch: Dispatch<Use
       type: LOGIN_FAILED,
       payload: error
     })
-    dispatch({
-      type: REDIRECT,
-      payload: {link: "/"}
-    })
   }
 }
 

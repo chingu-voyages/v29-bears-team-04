@@ -24,9 +24,9 @@ enum DropDownClass {
 export default function HamburgerDropdown({ drops }: Props) {
     const [toggle, setToggle] = useState<Boolean>(false);
     const user = useSelector((state: RootStateOrAny) => state.user);
-
+    const dispatch = useDispatch()
+    
     const handleLogout = (e:React.SyntheticEvent) => {
-        const dispatch = useDispatch()
         dispatch(logoutUser())
         console.log('clicked')
     }

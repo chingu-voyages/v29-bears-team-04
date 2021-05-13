@@ -28,7 +28,8 @@ export default function HamburgerDropdown({ drops }: Props) {
     
     const handleLogout = (e:React.SyntheticEvent) => {
         dispatch(logoutUser())
-        console.log('clicked')
+        setToggle(!toggle)
+        console.log('logout clicked')
     }
 
     return (

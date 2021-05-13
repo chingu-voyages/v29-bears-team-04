@@ -13,20 +13,13 @@ export default function Login() {
     const user = useSelector((state: RootStateOrAny) => state.user);
     const [emailInput, setEmailInput] = useState("");
     const [passInput, setPassInput] = useState("");
-    const [loading, setLoading] = useState(false)
-
-
+    
     let history = useHistory()
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
-        checkLoading()
         redirect()
     })
-
-    const checkLoading = () => {
-        user.isLoading ? setLoading(true) : setLoading(false)
-    }
 
 
     const redirect = () => {
@@ -91,7 +84,7 @@ export default function Login() {
                         <button type="submit">submit</button>
                     </div>
                 </Form>
-                    {loading ? <LoadingIcon width={50} height={50} cls={"mb-5 w-full flex justify-center"}/> : null}
+                    {user.loading ? <LoadingIcon width={50} height={50} cls={"mb-5 w-full flex justify-center"}/> : null}
                 <button onClick={handleLogout}>logout</button>
             </div>
         </div>

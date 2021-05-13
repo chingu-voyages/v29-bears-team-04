@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "../images/HamburgerMenu";
 import { useSelector, RootStateOrAny } from "react-redux";
+import { logoutUser } from "../../../redux/users/userActions";
+import { useDispatch } from 'react-redux'
 
 type HamburgerDrops = {
     text: string;
@@ -15,6 +17,12 @@ type Props = {
 enum DropDownClass {
     DISPLAY = "absolute top-12 right-1 bg-black rounded-lg",
     HIDE = "hidden",
+}
+
+const HandleLogout = (e:React.SyntheticEvent) => {
+    const dispatch = useDispatch()
+    dispatch(logoutUser())
+    console.log('clicked')
 }
 
 export default function HamburgerDropdown({ drops }: Props) {
@@ -42,7 +50,7 @@ export default function HamburgerDropdown({ drops }: Props) {
                             </li>
                         ))}
                         <li className="block w-56 pl-3 py-3">
-                            {Object.keys(user.currentUser).length === 0 ?  <Link to={"/login"} >Login</Link> : <Link to={"/"} >Logout</Link>}  
+                            {Object.keys(user.currentUser).length === 0 ?  <Link to={"/login"} >Login</Link> : <Link to={"/"} onClick={ HandleLogout } >Logout</Link>}  
                         </li>
                     </div>
                 </ul>

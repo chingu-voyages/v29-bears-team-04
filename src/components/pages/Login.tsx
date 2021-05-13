@@ -3,7 +3,7 @@ import FacebookButton from "../general/FacebookButton";
 import Form from "../general/Form";
 import Input from "../general/Input";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { loginUser, logoutUser, clearHistory } from "../../redux/users/userActions";
 import { useHistory } from 'react-router-dom'
 import LoadingIcon from '../general/images/LoadingIcon'
@@ -23,7 +23,7 @@ export default function Login() {
 
 
     const redirect = () => {
-        if (user.historyProps) {
+        if (user.historyProps === "/") {
         let redirect = user.historyProps.link
         dispatch(clearHistory())
         history.push(redirect)

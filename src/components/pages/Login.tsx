@@ -23,10 +23,13 @@ export default function Login() {
 
 
     const redirect = () => {
-        if (user.historyProps.link === "/") {
-        let redirect = user.historyProps.link
-        dispatch(clearHistory())
-        history.push(redirect)
+        if (user.historyProps) {
+            console.log(user.historyProps.link)
+            if (user.historyProps.link && user.historyProps.link === '/') {
+                let redirect = user.historyProps.link
+                dispatch(clearHistory())
+                history.push(redirect)
+            }
     }
 }
 

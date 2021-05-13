@@ -18,9 +18,9 @@ enum DropDownClass {
     DISPLAY = "absolute top-12 right-1 bg-black rounded-lg",
     HIDE = "hidden",
 }
+const dispatch = useDispatch()
 
 const HandleLogout = (e:React.SyntheticEvent) => {
-    const dispatch = useDispatch()
     dispatch(logoutUser())
     console.log('clicked')
 }

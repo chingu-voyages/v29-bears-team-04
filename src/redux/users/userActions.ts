@@ -68,16 +68,16 @@ export const logoutUser = () => async (dispatch: Dispatch<UserDispatchTypes>) =>
                   type: LOGOUT_USER
                 });
 
-                dispatch({
-                  type: REDIRECT,
-                  payload: {link: "/"}
-                })
+                // dispatch({
+                //   type: REDIRECT,
+                //   payload: {link: "/"}
+                // })
                 
   } catch (error) {
-    dispatch({
-    type: REDIRECT,
-    payload: {link: "/"}
-  })
+    // dispatch({
+    // type: REDIRECT,
+    // payload: {link: "/"}
+  // })
     console.log(error)
   }
 }

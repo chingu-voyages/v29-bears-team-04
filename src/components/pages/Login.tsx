@@ -33,8 +33,6 @@ export default function Login() {
     }
 }
 
-
-
     const handleSubmit = (e: any) => {
         e.preventDefault();
         let formData = {

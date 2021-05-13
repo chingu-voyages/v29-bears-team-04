@@ -58,9 +58,10 @@ const userReducer = (state: userState = INITIAL_STATE, action: UserDispatchTypes
           historyProps: action.payload
         }
       case CLEAR_HISTORY:
-        console.log("in clear history")
+        // console.log("in clear history")
         let oldState = {...state}
         delete oldState.historyProps
+        console.log(oldState)
           return oldState
     default: 
       return state

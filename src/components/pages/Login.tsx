@@ -6,10 +6,10 @@ import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { loginUser, logoutUser, clearHistory } from "../../redux/users/userActions";
 import { useHistory } from 'react-router-dom'
+import LoadingIcon from '../general/images/LoadingIcon'
 
 
 export default function Login() {
-    // const users = useSelector((state: RootStateOrAny) => state.users.all);
     const user = useSelector((state: RootStateOrAny) => state.user);
     const [emailInput, setEmailInput] = useState("");
     const [passInput, setPassInput] = useState("");
@@ -84,6 +84,7 @@ export default function Login() {
                         <button type="submit">submit</button>
                     </div>
                 </Form>
+                    {user.isLoading ? <LoadingIcon width={50} height={50} cls={"mb-5 w-full flex justify-center"}/> : null}
                 <button onClick={handleLogout}>logout</button>
             </div>
         </div>

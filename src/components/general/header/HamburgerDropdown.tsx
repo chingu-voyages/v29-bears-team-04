@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "../images/HamburgerMenu";
+import { useSelector, RootStateOrAny } from "react-redux";
 
 type HamburgerDrops = {
     text: string;
@@ -18,6 +19,7 @@ enum DropDownClass {
 
 export default function HamburgerDropdown({ drops }: Props) {
     const [toggle, setToggle] = useState<Boolean>(false);
+    const user = useSelector((state: RootStateOrAny) => state.user);
 
     return (
         <>
@@ -39,6 +41,9 @@ export default function HamburgerDropdown({ drops }: Props) {
                                 </Link>
                             </li>
                         ))}
+                        <li className="block w-56 pl-3 py-3">
+                            {Object.keys(user.currentUser).length === 0 ?  <Link to={"/login"} >Login</Link> : <Link to={"/"} >Logout</Link>}  
+                        </li>
                     </div>
                 </ul>
             </div>

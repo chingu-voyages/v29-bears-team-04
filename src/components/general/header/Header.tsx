@@ -5,6 +5,11 @@ import SearchBar from "./SearchBar";
 import UnsplashLogo from "../images/UnsplashLogo";
 import TabBar from "./TabBar";
 
+
+
+
+
+
 enum DisplayClass {
     DISPLAY = "block",
     HIDE = "hidden",
@@ -23,8 +28,6 @@ const TabProps = [
 
 const HamburgerProps = [
     { text: "About", path: "#About" },
-    { text: "Login", path: "/login" },
-    { text: "Join", path: "/join" },
     { text: "Wallpapers", path: "#wallpapers" },
     { text: "Brands", path: "#Brands" },
     { text: "Blog", path: "#Blog" },
@@ -33,6 +36,7 @@ const HamburgerProps = [
 ];
 
 export default function Header() {
+    
     const location = useLocation();
     const [displayHeader, setDisplayHeader] = useState(DisplayClass.DISPLAY);
 

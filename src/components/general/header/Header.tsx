@@ -4,6 +4,8 @@ import HamburgerDropdown from "./HamburgerDropdown";
 import SearchBar from "./SearchBar";
 import UnsplashLogo from "../images/UnsplashLogo";
 import TabBar from "./TabBar";
+import UserAvatar from './UserAvatar'
+import blankAvatar from "../images/blank-avatar.jpg"
 
 
 
@@ -58,6 +60,7 @@ export default function Header() {
                     </div>
                 </Link>
                 <SearchBar />
+                <UserAvatar source={ blankAvatar }></UserAvatar>
                 <HamburgerDropdown drops={HamburgerProps} />
             </div>
             <TabBar tabs={TabProps} />

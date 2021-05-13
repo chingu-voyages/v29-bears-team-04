@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "../images/HamburgerMenu";
 import { useSelector, RootStateOrAny } from "react-redux";
-import { logoutUser } from "../../../redux/users/userActions";
+import { logoutUser, clearHistory } from "../../../redux/users/userActions";
 import { useDispatch } from 'react-redux'
 
 type HamburgerDrops = {
@@ -28,6 +28,7 @@ export default function HamburgerDropdown({ drops }: Props) {
     
     const handleLogout = (e:React.SyntheticEvent) => {
         dispatch(logoutUser())
+        dispatch(clearHistory())
         setToggle(!toggle)
         console.log('logout clicked')
     }

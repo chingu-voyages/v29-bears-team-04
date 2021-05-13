@@ -23,7 +23,7 @@ export default function Login() {
 
 
     const redirect = () => {
-        if (user.historyProps === "/") {
+        if (user.historyProps.link === "/") {
         let redirect = user.historyProps.link
         dispatch(clearHistory())
         history.push(redirect)

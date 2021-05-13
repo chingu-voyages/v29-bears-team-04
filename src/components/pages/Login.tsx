@@ -86,7 +86,6 @@ export default function Login() {
                     </div>
                 </Form>
                     {user.loading ? <LoadingIcon width={50} height={50} cls={"mb-5 w-full flex justify-center"}/> : null}
-                <button onClick={handleLogout}>logout</button>
             </div>
         </div>
     );

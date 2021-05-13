@@ -18,16 +18,18 @@ enum DropDownClass {
     DISPLAY = "absolute top-12 right-1 bg-black rounded-lg",
     HIDE = "hidden",
 }
-const dispatch = useDispatch()
 
-const HandleLogout = (e:React.SyntheticEvent) => {
-    dispatch(logoutUser())
-    console.log('clicked')
-}
+
 
 export default function HamburgerDropdown({ drops }: Props) {
     const [toggle, setToggle] = useState<Boolean>(false);
     const user = useSelector((state: RootStateOrAny) => state.user);
+
+    const handleLogout = (e:React.SyntheticEvent) => {
+        const dispatch = useDispatch()
+        dispatch(logoutUser())
+        console.log('clicked')
+    }
 
     return (
         <>
@@ -50,7 +52,7 @@ export default function HamburgerDropdown({ drops }: Props) {
                             </li>
                         ))}
                         <li className="block w-56 pl-3 py-3">
-                            {Object.keys(user.currentUser).length === 0 ?  <Link to={"/login"} >Login</Link> : <Link to={"/"} onClick={ HandleLogout } >Logout</Link>}  
+                            {Object.keys(user.currentUser).length === 0 ?  <Link to={"/login"} >Login</Link> : <Link to={"/"} onClick={ handleLogout } >Logout</Link>}  
                         </li>
                     </div>
                 </ul>

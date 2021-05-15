@@ -5,11 +5,6 @@ import SearchBar from "./SearchBar";
 import UnsplashLogo from "../images/UnsplashLogo";
 import TabBar from "./TabBar";
 
-
-
-
-
-
 enum DisplayClass {
     DISPLAY = "block",
     HIDE = "hidden",

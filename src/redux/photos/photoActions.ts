@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 import {
-  iPhoto,
   LOADING,
   ADD_PHOTO_SUCCESS,
   ADD_PHOTO_FAILED,
@@ -9,7 +8,9 @@ import {
   GET_ALL_PHOTOS_FAILED,
   PhotoDispatchTypes,
   GET_CATEGORY_PHOTOS_SUCCESS,
-  GET_CATEGORY_PHOTOS_FAILED
+  GET_CATEGORY_PHOTOS_FAILED,
+  SEARCH_PHOTO_SUCCESS,
+  SEARCH_PHOTO_FAILED
 } from './photoTypes';
 
 export interface AddPhotoInput {
@@ -74,5 +75,25 @@ export const getCategoryPhotos = (category: AddPhotoInput["category"]) => async(
       type: GET_CATEGORY_PHOTOS_FAILED,
       payload: error
     })
+  }
+};
+
+export const searchPhotos = (searchString: string) => async(dispatch: Dispatch<PhotoDispatchTypes>) => {
+  try {
+    dispatch({
+      type: LOADING
+    });
+
+    const res = await axios.post("https://unsplash-clone-server.herokuapp.com/photos/searchAllPhotos", searchString)
+    
+    dispatch({
+      type: SEARCH_PHOTO_SUCCESS,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: SEARCH_PHOTO_FAILED,
+      payload: error
+    });
   }
 };

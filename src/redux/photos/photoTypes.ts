@@ -5,6 +5,8 @@ export const GET_ALL_PHOTOS_SUCCESS = "GET_ALL_PHOTOS_SUCCESS";
 export const GET_ALL_PHOTOS_FAILED = "GET_ALL_PHOTOS_FAILED";
 export const GET_CATEGORY_PHOTOS_SUCCESS = "GET_CATEGORY_PHOTOS_SUCCESS";
 export const GET_CATEGORY_PHOTOS_FAILED = "GET_CATEGORY_PHOTOS_FAILED";
+export const SEARCH_PHOTO_SUCCESS = "SEARCH_PHOTO_SUCCESS";
+export const SEARCH_PHOTO_FAILED = "SEARCH_PHOTO_FAILED";
 
 export interface iPhoto {
   id: number,
@@ -48,6 +50,16 @@ export interface GetCategoryPhotosFailed {
   payload: any
 };
 
+export interface SearchPhotoSuccess {
+  type: typeof SEARCH_PHOTO_SUCCESS,
+  payload: iPhoto[]
+};
+
+export interface SearchPhotoFailed {
+  type: typeof SEARCH_PHOTO_FAILED,
+  payload: any
+};
+
 export type PhotoDispatchTypes = 
 Loading |
 AddPhotoSuccess |
@@ -55,4 +67,6 @@ AddPhotoFailed |
 GetAllPhotosSuccess |
 GetAllPhotosFailed |
 GetCategoryPhotosSuccess |
-GetCategoryPhotosFailed
+GetCategoryPhotosFailed |
+SearchPhotoSuccess |
+SearchPhotoFailed

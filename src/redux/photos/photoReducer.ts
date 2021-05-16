@@ -7,7 +7,9 @@ import {
   GET_ALL_PHOTOS_FAILED,
   GET_CATEGORY_PHOTOS_SUCCESS,
   GET_CATEGORY_PHOTOS_FAILED,
-  PhotoDispatchTypes
+  PhotoDispatchTypes,
+  SEARCH_PHOTO_SUCCESS,
+  SEARCH_PHOTO_FAILED
 } from './photoTypes';
 
 export interface PhotoState {
@@ -69,6 +71,18 @@ export const photoReducer = (state: PhotoState = INITIAL_STATE, action: PhotoDis
         loading: false
       }
     case GET_CATEGORY_PHOTOS_FAILED:
+      return {
+        ...state,
+        errors: action.payload,
+        loading: false
+      }
+    case SEARCH_PHOTO_SUCCESS: 
+      return {
+        ...state,
+        searchQueryPhotos: action.payload,
+        loading: false
+      }
+    case SEARCH_PHOTO_FAILED:
       return {
         ...state,
         errors: action.payload,

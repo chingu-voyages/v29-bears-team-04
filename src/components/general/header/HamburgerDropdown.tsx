@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "../images/HamburgerMenu";
 import { useSelector, RootStateOrAny } from "react-redux";
-import { logoutUser, clearHistory } from "../../../redux/users/userActions";
+import { logoutUser } from "../../../redux/users/userActions";
 import { useDispatch } from 'react-redux'
 
 type HamburgerDrops = {

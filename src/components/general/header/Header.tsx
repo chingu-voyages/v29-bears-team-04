@@ -35,6 +35,16 @@ const HamburgerProps = [
     { text: "Join", path: "/join" }
 ];
 
+const AvatarProps = [
+    { text: "About", path: "#About" },
+    { text: "Wallpapers", path: "#wallpapers" },
+    { text: "Brands", path: "#Brands" },
+    { text: "Blog", path: "#Blog" },
+    { text: "Collections", path: "#Collections" },
+    { text: "Explore", path: "#Explore" },
+    { text: "Join", path: "/join" }
+]
+
 export default function Header() {
     
     const location = useLocation();
@@ -51,12 +61,10 @@ export default function Header() {
     );
 
     useEffect(() => {
-        user.isLoggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.HIDE)
+        user.isLoggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.DISPLAY)
     })
 
-    const handleAvatarClick = (e:React.SyntheticEvent) => {
-        console.log("avatar clicked")
-    }
+   
 
 
 
@@ -71,7 +79,7 @@ export default function Header() {
                     </div>
                 </Link>
                 <SearchBar />
-                <UserAvatar source={ blankAvatar } cls={ displayUser } onClick={}></UserAvatar>
+                <UserAvatar source={ blankAvatar } cls={ displayUser } drops={ AvatarProps }></UserAvatar>
                 <HamburgerDropdown drops={HamburgerProps} />
             </div>
             <TabBar tabs={TabProps} />

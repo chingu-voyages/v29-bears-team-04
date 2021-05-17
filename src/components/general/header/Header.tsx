@@ -6,10 +6,7 @@ import UnsplashLogo from "../images/UnsplashLogo";
 import TabBar from "./TabBar";
 import UserAvatar from './UserAvatar'
 import blankAvatar from "../images/blank-avatar.jpg"
-
-
-
-
+import { useSelector, RootStateOrAny } from "react-redux";
 
 
 enum DisplayClass {
@@ -42,12 +39,22 @@ export default function Header() {
     
     const location = useLocation();
     const [displayHeader, setDisplayHeader] = useState(DisplayClass.DISPLAY);
+    const [displayUser, setDisplayUser] = useState(DisplayClass.DISPLAY)
+    const user = useSelector((state: RootStateOrAny) => state.user);
 
     useEffect(() => {
         location.pathname === "/login" || location.pathname === "/join"
             ? setDisplayHeader(DisplayClass.HIDE)
             : setDisplayHeader(DisplayClass.DISPLAY);
-    }, [location]);
+    }, [location]
+    
+    );
+
+    useEffect(() => {
+        user.loggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.HIDE)
+    })
+
+
 
     return (
         <div className={displayHeader}>
@@ -60,7 +67,7 @@ export default function Header() {
                     </div>
                 </Link>
                 <SearchBar />
-                <UserAvatar source={ blankAvatar }></UserAvatar>
+                <UserAvatar source={ blankAvatar } cls={ displayUser }></UserAvatar>
                 <HamburgerDropdown drops={HamburgerProps} />
             </div>
             <TabBar tabs={TabProps} />

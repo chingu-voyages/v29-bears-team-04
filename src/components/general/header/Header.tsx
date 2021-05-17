@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import HamburgerDropdown from "./HamburgerDropdown";
 import SearchBar from "./SearchBar";
@@ -54,6 +54,10 @@ export default function Header() {
         user.isLoggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.HIDE)
     })
 
+    const handleAvatarClick = (e:React.SyntheticEvent) => {
+        console.log("avatar clicked")
+    }
+
 
 
     return (
@@ -67,7 +71,7 @@ export default function Header() {
                     </div>
                 </Link>
                 <SearchBar />
-                <UserAvatar source={ blankAvatar } cls={ displayUser }></UserAvatar>
+                <UserAvatar source={ blankAvatar } cls={ displayUser } onClick={}></UserAvatar>
                 <HamburgerDropdown drops={HamburgerProps} />
             </div>
             <TabBar tabs={TabProps} />

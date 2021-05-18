@@ -36,7 +36,7 @@ const HamburgerProps = [
 ];
 
 const AvatarProps = [
-    { text: "View Profile", path: "#Profile" },
+    { text: "View Profile", path: "/account" },
     { text: "Stats", path: "#Stats" },
     { text: "Account Settings", path: "#Settings" }
 ]
@@ -57,7 +57,7 @@ export default function Header() {
     );
 
     useEffect(() => {
-        user.isLoggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.HIDE)
+        user.isLoggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.DISPLAY)
     }, [user.isLoggedIn])
 
    

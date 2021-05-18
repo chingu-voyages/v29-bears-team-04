@@ -1,12 +1,12 @@
 import {useSelector, RootStateOrAny} from 'react-redux'
 
 
-export default function MyAccount() {
+export default function Profile() {
     const user = useSelector((state: RootStateOrAny) => state.user);
 
     return (
         <div>
-            Welcome to your account, {user.currentUser.name || "user"}
+            Welcome, {user.currentUser.name || "user"}
         </div>
     )
 }

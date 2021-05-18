@@ -36,7 +36,7 @@ const HamburgerProps = [
 ];
 
 const AvatarProps = [
-    { text: "View Profile", path: "/account" },
+    { text: "View Profile", path: "/profile" },
     { text: "Stats", path: "#Stats" },
     { text: "Account Settings", path: "#Settings" }
 ]

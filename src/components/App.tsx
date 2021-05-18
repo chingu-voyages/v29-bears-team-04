@@ -10,7 +10,7 @@ import Topic from "./pages//Topic";
 import Login from "./pages/Login";
 import Join from "./pages/Join";
 import Unsplash from "./pages/Unsplash";
-import MyAccount from './pages/MyAccount'
+import Profile from './pages/Profile'
 
 function App() {
     return (
@@ -28,7 +28,7 @@ function App() {
                     <Route exact path="/login" component={Login}/>
 
                     {/* My Account */}
-                    <Route exact path="/account" component={MyAccount}/>
+                    <Route exact path="/profile" component={Profile}/>
 
                     {/* All Topics Page  */}
                     <Route exact path="/t/" component={AllTopics} />

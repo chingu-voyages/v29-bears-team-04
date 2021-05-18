@@ -36,13 +36,9 @@ const HamburgerProps = [
 ];
 
 const AvatarProps = [
-    { text: "About", path: "#About" },
-    { text: "Wallpapers", path: "#wallpapers" },
-    { text: "Brands", path: "#Brands" },
-    { text: "Blog", path: "#Blog" },
-    { text: "Collections", path: "#Collections" },
-    { text: "Explore", path: "#Explore" },
-    { text: "Join", path: "/join" }
+    { text: "View Profile", path: "#Profile" },
+    { text: "Stats", path: "#Stats" },
+    { text: "Account Settings", path: "#Settings" }
 ]
 
 export default function Header() {
@@ -61,7 +57,7 @@ export default function Header() {
     );
 
     useEffect(() => {
-        user.isLoggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.HIDE)
+        user.isLoggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.DISPLAY)
     }, [user.isLoggedIn])
 
    

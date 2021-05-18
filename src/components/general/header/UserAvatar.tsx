@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect, useRef } from 'react'
 import { Link } from "react-router-dom";
+import { logoutUser } from "../../../redux/users/userActions"
+import { useDispatch } from 'react-redux'
 
 
 type Props = {
@@ -27,6 +29,8 @@ export default function UserAvatar ({ source, cls, drops }: Props) {
     const emptyDiv = document.createElement('div')
     const buttonRef = useRef(emptyDiv)
 
+    const dispatch = useDispatch()
+
     useEffect(() => {
         document.addEventListener("mousedown", handleOutsideClick)
     }, [])
@@ -45,6 +49,11 @@ export default function UserAvatar ({ source, cls, drops }: Props) {
         }
     }
 
+    const handleLogout = (e:React.SyntheticEvent) => {
+        e.preventDefault()
+        dispatch(logoutUser())
+    }
+
     
     return (
         <div className={`relative block w-12 pl-2 object-contain ${cls}`} onClick={handleAvatarClick} ref={buttonRef} >
@@ -53,12 +62,17 @@ export default function UserAvatar ({ source, cls, drops }: Props) {
                     <div className="relative text-white z-10">
                         <div className="bg-black w-4 h-4 absolute origin-bottom-right transform rotate-45 right-3" />
                         {drops.map((item, index) => (
-                            <li className="block w-56 pl-3 py-3">
+                            <li className="block w-56 pl-3 py-3 hover:text-gray-500 transition duration-100 ease-in-out">
                                 <Link key={index} to={item.path}>
                                     {item.text}
                                 </Link>
                             </li>
                         ))}
+                        <li className="block w-56 pl-3 py-3 hover:text-gray-500 transition duration-100 ease-in-out">
+                                <button onClick={ handleLogout }>
+                                    Log Out
+                                </button>
+                            </li>
                     </div>
                 </ul>
         </div>

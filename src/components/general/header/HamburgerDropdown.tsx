@@ -56,7 +56,7 @@ export default function HamburgerDropdown({ drops }: Props) {
                 </button>
 
                 <ul className={toggle ? DropDownClass.DISPLAY : DropDownClass.HIDE} >
-                    <div className="relative text-white">
+                    <div className="relative text-white z-10">
                         <div className="bg-black w-4 h-4 absolute origin-bottom-right transform rotate-45 right-3" />
                         {drops.map((item, index) => (
                             <li className="block w-56 pl-3 py-3">

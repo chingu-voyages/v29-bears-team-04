@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "../images/HamburgerMenu";
 import { useSelector, RootStateOrAny } from "react-redux";
@@ -31,9 +31,23 @@ export default function HamburgerDropdown({ drops }: Props) {
         setToggle(!toggle)
     }
 
+    const emptyDiv = document.createElement('div')
+    const buttonRef = useRef(emptyDiv)
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleOutsideClick)
+    }, [])
+
+    const handleOutsideClick = (e:any) => {
+        const node = buttonRef.current
+        if (!node.contains(e.target)) {
+            setToggle(false)
+        }
+    }
+
     return (
         <>
-            <div className="relative block">
+            <div className="relative block" ref={buttonRef}>
                 <button
                     className="focus:outline-none align-center px-2"
                     onClick={() => setToggle(!toggle)}
@@ -41,7 +55,7 @@ export default function HamburgerDropdown({ drops }: Props) {
                     <HamburgerMenu width={25} height={25} cls="mt-1" />
                 </button>
 
-                <ul className={toggle ? DropDownClass.DISPLAY : DropDownClass.HIDE}>
+                <ul className={toggle ? DropDownClass.DISPLAY : DropDownClass.HIDE} >
                     <div className="relative text-white">
                         <div className="bg-black w-4 h-4 absolute origin-bottom-right transform rotate-45 right-3" />
                         {drops.map((item, index) => (

@@ -62,7 +62,7 @@ export default function Header() {
 
     useEffect(() => {
         user.isLoggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.DISPLAY)
-    })
+    }, [user.isLoggedIn])
 
    
 

@@ -6,20 +6,20 @@ type Tabs = {
     path: string;
 };
 
-type Props = { tabs: Tabs[] };
+type Props = { tabs: Tabs[], cls:string  };
 
 enum TabsClass {
     FREE = "inline-block pr-4 mb-3 list-none",
     SELECTED = "inline-block pr-4 mb-3 list-none border-b-2 border-gray-700",
 }
-//TODO: add scroll arrows when sm:
-export default function TabBar({ tabs }: Props) {
+
+export default function TabBar({ tabs, cls }: Props) {
     const location = useLocation();
-    console.log(location.pathname);
+    console.log(cls)
 
     return (
-        <div className="px-2 pt-1 shadow-md flex justify-between">
-            <div className="w-9/12 sm:w-11/12 pt-3 whitespace-nowrap overflow-x-scroll sm:no-scrollbar">
+        <div className={`px-2 pt-2 shadow-md flex justify-between ${cls}`}>
+            <div className="w-9/12 sm:w-11/12 pt-3 whitespace-nowrap overflow-hidden">
                 {tabs.map((tab) => (
                     <li
                         className={
@@ -27,7 +27,7 @@ export default function TabBar({ tabs }: Props) {
                                 ? TabsClass.SELECTED
                                 : TabsClass.FREE
                         }
-                    >
+                    >d
                         <Link className="opacity-75" to={tab.path}>
                             {tab.text}
                         </Link>

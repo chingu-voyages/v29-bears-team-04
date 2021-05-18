@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import HamburgerDropdown from "./HamburgerDropdown";
 import SearchBar from "./SearchBar";
 import UnsplashLogo from "../images/UnsplashLogo";
 import TabBar from "./TabBar";
+import UserAvatar from './UserAvatar'
+import blankAvatar from "../images/blank-avatar.jpg"
+import { useSelector, RootStateOrAny } from "react-redux";
+
 
 enum DisplayClass {
     DISPLAY = "block",
@@ -44,24 +48,50 @@ const TabProps = [
 
 const HamburgerProps = [
     { text: "About", path: "#About" },
-    { text: "Login", path: "/login" },
-    { text: "Join", path: "/join" },
     { text: "Wallpapers", path: "#wallpapers" },
     { text: "Brands", path: "#Brands" },
     { text: "Blog", path: "#Blog" },
     { text: "Collections", path: "#Collections" },
     { text: "Explore", path: "#Explore" },
+    { text: "Join", path: "/join" }
 ];
 
+const AvatarProps = [
+    { text: "View Profile", path: "/profile" },
+    { text: "Stats", path: "#Stats" },
+    { text: "Account Settings", path: "#Settings" }
+]
+
 export default function Header() {
+    
     const location = useLocation();
     const [displayHeader, setDisplayHeader] = useState(DisplayClass.DISPLAY);
+    const [displayUser, setDisplayUser] = useState(DisplayClass.DISPLAY)
+    const [displayTab, setDisplayTab] = useState(DisplayClass.DISPLAY)
+    const user = useSelector((state: RootStateOrAny) => state.user);
 
     useEffect(() => {
         location.pathname === "/login" || location.pathname === "/join"
             ? setDisplayHeader(DisplayClass.HIDE)
             : setDisplayHeader(DisplayClass.DISPLAY);
-    }, [location]);
+    }, [location]
+    
+    );
+
+    useEffect(() => {
+        user.isLoggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.HIDE)
+    }, [user.isLoggedIn])
+
+    useEffect(() => {
+        location.pathname === "/profile"
+            ? setDisplayTab(DisplayClass.HIDE)
+            : setDisplayTab(DisplayClass.DISPLAY);
+    }, [location]
+    )
+
+   
+
+
 
     return (
         <div className={displayHeader}>
@@ -74,9 +104,10 @@ export default function Header() {
                     </div>
                 </Link>
                 <SearchBar />
+                <UserAvatar source={ blankAvatar } cls={ displayUser } drops={ AvatarProps }></UserAvatar>
                 <HamburgerDropdown drops={HamburgerProps} />
             </div>
-            <TabBar tabs={TabProps} />
+            <TabBar tabs={TabProps} cls={displayTab}/>
         </div>
     );
 }

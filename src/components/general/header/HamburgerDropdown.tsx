@@ -1,6 +1,9 @@
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "../images/HamburgerMenu";
+import { useSelector, RootStateOrAny } from "react-redux";
+import { logoutUser } from "../../../redux/users/userActions";
+import { useDispatch } from 'react-redux'
 
 type HamburgerDrops = {
     text: string;
@@ -16,12 +19,35 @@ enum DropDownClass {
     HIDE = "hidden",
 }
 
+
+
 export default function HamburgerDropdown({ drops }: Props) {
     const [toggle, setToggle] = useState<Boolean>(false);
+    const user = useSelector((state: RootStateOrAny) => state.user);
+    const dispatch = useDispatch()
+    
+    const handleLogout = (e:React.SyntheticEvent) => {
+        dispatch(logoutUser())
+        setToggle(!toggle)
+    }
+
+    const emptyDiv = document.createElement('div')
+    const buttonRef = useRef(emptyDiv)
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleOutsideClick)
+    }, [])
+
+    const handleOutsideClick = (e:any) => {
+        const node = buttonRef.current
+        if (!node.contains(e.target)) {
+            setToggle(false)
+        }
+    }
 
     return (
         <>
-            <div className="relative block">
+            <div className="relative block" ref={buttonRef}>
                 <button
                     className="focus:outline-none align-center px-2"
                     onClick={() => setToggle(!toggle)}
@@ -29,16 +55,19 @@ export default function HamburgerDropdown({ drops }: Props) {
                     <HamburgerMenu width={25} height={25} cls="mt-1" />
                 </button>
 
-                <ul className={toggle ? DropDownClass.DISPLAY : DropDownClass.HIDE}>
-                    <div className="relative text-white">
+                <ul className={toggle ? DropDownClass.DISPLAY : DropDownClass.HIDE} >
+                    <div className="relative text-white z-10 ">
                         <div className="bg-black w-4 h-4 absolute origin-bottom-right transform rotate-45 right-3" />
                         {drops.map((item, index) => (
                             <li className="block w-56 pl-3 py-3">
-                                <Link key={index} to={item.path}>
+                                <Link key={index} to={item.path} className="hover:text-gray-500 transition duration-100 ease-in-out">
                                     {item.text}
                                 </Link>
                             </li>
                         ))}
+                        <li className="block w-56 pl-3 py-3">
+                            {Object.keys(user.currentUser).length === 0 ?  <Link to={"/login"} className="hover:text-gray-500 transition duration-100 ease-in-out">Login</Link> : <Link to={"/"} onClick={ handleLogout } className="hover:text-gray-500 transition duration-100 ease-in-out">Logout</Link>}  
+                        </li>
                     </div>
                 </ul>
             </div>

@@ -6,7 +6,6 @@ interface CategoryParam {
 
 export default function Topic() {
     let { type } = useParams<CategoryParam>();
-
     return (
         <>
             <h1>{type}</h1>

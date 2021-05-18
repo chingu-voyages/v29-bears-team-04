@@ -51,7 +51,10 @@ const userReducer = (state: userState = INITIAL_STATE, action: UserDispatchTypes
         currentUser: action.payload
       }
       case LOGOUT_USER:
-        return INITIAL_STATE
+        return {
+          ...INITIAL_STATE,
+          currentUser: {}
+        }
       case REDIRECT:
         return {
           ...state,

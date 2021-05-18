@@ -46,6 +46,7 @@ export default function Header() {
     const location = useLocation();
     const [displayHeader, setDisplayHeader] = useState(DisplayClass.DISPLAY);
     const [displayUser, setDisplayUser] = useState(DisplayClass.DISPLAY)
+    const [displayTab, setDisplayTab] = useState(DisplayClass.DISPLAY)
     const user = useSelector((state: RootStateOrAny) => state.user);
 
     useEffect(() => {
@@ -59,6 +60,13 @@ export default function Header() {
     useEffect(() => {
         user.isLoggedIn ? setDisplayUser(DisplayClass.DISPLAY) : setDisplayUser(DisplayClass.DISPLAY)
     }, [user.isLoggedIn])
+
+    useEffect(() => {
+        location.pathname === "/profile"
+            ? setDisplayTab(DisplayClass.HIDE)
+            : setDisplayTab(DisplayClass.DISPLAY);
+    }, [location]
+    )
 
    
 
@@ -78,7 +86,7 @@ export default function Header() {
                 <UserAvatar source={ blankAvatar } cls={ displayUser } drops={ AvatarProps }></UserAvatar>
                 <HamburgerDropdown drops={HamburgerProps} />
             </div>
-            <TabBar tabs={TabProps} />
+            <TabBar tabs={TabProps} cls={displayTab}/>
         </div>
     );
 }

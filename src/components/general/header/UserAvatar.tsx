@@ -57,7 +57,7 @@ export default function UserAvatar ({ source, cls, drops }: Props) {
     
     return (
         <div className={`relative block w-12 pl-2 object-contain ${cls}`} onClick={handleAvatarClick} ref={buttonRef} >
-            <img src={ source } alt="alt-text" className="rounded-full cursor-pointer"  ></img>
+            <img src={ source } alt="alt-text" className="rounded-full cursor-pointer "  ></img>
             <ul className={toggle ? DropDownClass.DISPLAY : DropDownClass.HIDE}>
                     <div className="relative text-white z-10">
                         <div className="bg-black w-4 h-4 absolute origin-bottom-right transform rotate-45 right-3" />

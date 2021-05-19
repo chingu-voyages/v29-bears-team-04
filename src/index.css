@@ -3,15 +3,26 @@
 @tailwind utilities;
 
 @layer utilities {
-  @variants responsive {
-    .arrow-up {
-      width: 0;
-      height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
+    @variants responsive {
+        /* Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
 
-      border-bottom: 10px solid black;
-      margin: none;
+        .no-scrollbar {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+        .masonry-3-col {
+            column-count: 3;
+            column-gap: 1em;
+        }
+        .masonry-1-col {
+            column-count: 1;
+            column-gap: 1em;
+        }
+        .break-inside {
+            break-inside: avoid;
+        }
     }
-  }
 }

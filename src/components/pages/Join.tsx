@@ -17,7 +17,7 @@ export default function Join() {
                 Image Goes Here
             </div>
             <div className="h-screen w-full">
-                <div className="h-full bg-green-100 flex flex-col items-center justify-start sm:justify-center">
+                <div className="h-full flex flex-col items-center justify-start sm:justify-center">
                     <div className="flex flex-col items-center py-6">
                         <div className="font-bold  text-2xl pb-4">Join Unsplash</div>
                         <div>

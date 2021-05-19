@@ -10,7 +10,7 @@ import Topic from "./pages//Topic";
 import Login from "./pages/Login";
 import Join from "./pages/Join";
 import Unsplash from "./pages/Unsplash";
-import Profile from './pages/Profile'
+import Profile from "./pages/Profile"
 
 function App() {
     return (

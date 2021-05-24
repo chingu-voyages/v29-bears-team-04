@@ -9,7 +9,9 @@ import {
   GET_CATEGORY_PHOTOS_FAILED,
   PhotoDispatchTypes,
   SEARCH_PHOTO_SUCCESS,
-  SEARCH_PHOTO_FAILED
+  SEARCH_PHOTO_FAILED,
+  UPDATE_PHOTO_SUCCESS,
+  UPDATE_PHOTO_FAILED
 } from './photoTypes';
 
 export interface PhotoState {
@@ -17,7 +19,8 @@ export interface PhotoState {
   currentUserPhotos: iPhoto[],
   categoryPhotos: iPhoto[],
   searchQueryPhotos: iPhoto[],
-  singlePhoto: iPhoto,
+  updatedPhoto: iPhoto,
+  addedPhoto: iPhoto,
   errors: any,
   loading: boolean
 }
@@ -27,7 +30,7 @@ export const INITIAL_STATE = {
   currentUserPhotos: [],
   categoryPhotos: [],
   searchQueryPhotos: [],
-  singlePhoto: {} as iPhoto,
+  updatedPhoto: {} as iPhoto,
   addedPhoto: {} as iPhoto,
   errors: null,
   loading: false
@@ -87,6 +90,18 @@ export const photoReducer = (state: PhotoState = INITIAL_STATE, action: PhotoDis
         ...state,
         errors: action.payload,
         loading: false
+      }
+    case UPDATE_PHOTO_SUCCESS: 
+      return {
+        ...state,
+        loading: false,
+        updatedPhoto: action.payload
+      }
+    case UPDATE_PHOTO_FAILED:
+      return {
+        ...state,
+        loading: false,
+        errors: action.payload
       }
     default:
       return state

@@ -7,7 +7,10 @@ export const GET_CATEGORY_PHOTOS_SUCCESS = "GET_CATEGORY_PHOTOS_SUCCESS";
 export const GET_CATEGORY_PHOTOS_FAILED = "GET_CATEGORY_PHOTOS_FAILED";
 export const SEARCH_PHOTO_SUCCESS = "SEARCH_PHOTO_SUCCESS";
 export const SEARCH_PHOTO_FAILED = "SEARCH_PHOTO_FAILED";
-
+export const UPDATE_PHOTO_SUCCESS = "UPDATE_PHOTO_SUCCESS";
+export const UPDATE_PHOTO_FAILED = "UPDATE_PHOTO_FAILED";
+export const DELETE_PHOTO_SUCCESS = "DELETE_PHOTO_SUCCESS";
+export const DELETE_PHOTO_FAILED = "DELETE_PHOTO_FAILED";
 export interface iPhoto {
   id: number,
   title: string,
@@ -60,6 +63,24 @@ export interface SearchPhotoFailed {
   payload: any
 };
 
+export interface UpdatePhotoSuccess {
+  type: typeof UPDATE_PHOTO_SUCCESS,
+  payload: iPhoto
+}
+
+export interface UpdatePhotoFailed {
+  type: typeof UPDATE_PHOTO_FAILED,
+  payload: iPhoto
+}
+
+export interface DeletePhotoSuccess {
+  type: typeof DELETE_PHOTO_SUCCESS,
+  payload: iPhoto
+}
+export interface DeletePhotoFailed {
+  type: typeof DELETE_PHOTO_FAILED,
+  payload: iPhoto
+}
 export type PhotoDispatchTypes = 
 Loading |
 AddPhotoSuccess |
@@ -69,4 +90,8 @@ GetAllPhotosFailed |
 GetCategoryPhotosSuccess |
 GetCategoryPhotosFailed |
 SearchPhotoSuccess |
-SearchPhotoFailed
+SearchPhotoFailed | 
+UpdatePhotoSuccess |
+UpdatePhotoFailed |
+DeletePhotoSuccess |
+DeletePhotoFailed

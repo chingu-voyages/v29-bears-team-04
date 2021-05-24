@@ -10,7 +10,11 @@ import {
   GET_CATEGORY_PHOTOS_SUCCESS,
   GET_CATEGORY_PHOTOS_FAILED,
   SEARCH_PHOTO_SUCCESS,
-  SEARCH_PHOTO_FAILED
+  SEARCH_PHOTO_FAILED,
+  UPDATE_PHOTO_SUCCESS,
+  UPDATE_PHOTO_FAILED,
+  DELETE_PHOTO_FAILED,
+  DELETE_PHOTO_SUCCESS
 } from './photoTypes';
 
 export interface AddPhotoInput {
@@ -18,6 +22,12 @@ export interface AddPhotoInput {
   title: string,
   category: "Nature" | "People" | "Architecture" | "Animals" | "Food" | "Technology",
 }
+
+export interface UpdatePhotoInput {
+  title: string,
+  category: "Nature" | "People" | "Architecture" | "Animals" | "Food" | "Technology"
+}
+
 
 export const addPhoto = (photo: AddPhotoInput) => async(dispatch: Dispatch<PhotoDispatchTypes>) => {
   try {
@@ -95,5 +105,47 @@ export const searchPhotos = (searchString: string) => async(dispatch: Dispatch<P
       type: SEARCH_PHOTO_FAILED,
       payload: error
     });
+  }
+};
+
+export const updatePhoto = (input: UpdatePhotoInput) => async(dispatch: Dispatch<PhotoDispatchTypes>) => {
+  try {
+    dispatch({
+      type: LOADING
+    });
+
+    const res = await axios.post("https://unsplash-clone-server.herokuapp.com/photos/updatePhoto", input, {withCredentials: true});
+
+    dispatch({
+      type: UPDATE_PHOTO_SUCCESS,
+      payload: res.data
+    });
+
+  } catch (error) {
+    dispatch({
+      type: UPDATE_PHOTO_FAILED,
+      payload: error
+    })
+  }
+};
+
+export const deletePhoto = (deletePhotoId: number) => async (dispatch: Dispatch<PhotoDispatchTypes>) => {
+   try {
+    dispatch({
+      type: LOADING
+    });
+
+    const res = await axios.post("https://unsplash-clone-server.herokuapp.com/photos/deletePhoto", deletePhotoId, {withCredentials: true});
+
+    dispatch({
+      type: DELETE_PHOTO_SUCCESS,
+      payload: res.data
+    });
+
+  } catch (error) {
+    dispatch({
+      type: DELETE_PHOTO_FAILED,
+      payload: error
+    })
   }
 };
